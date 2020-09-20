@@ -1,0 +1,19 @@
+.buttonStyle {
+  background-color: #3c2946;
+  border: 1px solid #3c2946;
+  border-radius: 10px;
+  color: #e8ded2;
+  font-size: 1em;
+  width: 200px;
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 960px) {
+  .buttonStyle {
+    background-color: #e8ded2;
+    border: 1px solid #e8ded2;
+    color: #3c2946;
+    margin-top: 20px;
+  }
+}

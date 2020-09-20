@@ -1,0 +1,73 @@
+.backgroundScreen {
+  background-color: #3c2946;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.backgroundContent {
+  background-color: #e8ded2;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  color: #3c2946;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 80%;
+}
+
+.backgroundContent p {
+  margin: 0 15px;
+  margin-bottom: 40px;
+  font-size: 0.9em;
+  width: 300px;
+}
+
+.backgroundContent .formStyle a {
+  align-self: flex-end;
+  color: #3c2946;
+  padding-bottom: 10px;
+  text-decoration: none;
+}
+
+@media (min-width: 960px) {
+  .backgroundContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: space-around;
+  }
+
+  .backgroundContent .apresentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+  }
+
+  .backgroundContent p {
+    font-size: 1.4em;
+  }
+  .backgroundContent .formStyle {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #3c2946;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    height: 380px;
+  }
+
+  .backgroundContent .formStyle a {
+    align-self: flex-end;
+    color: #e8ded2;
+    padding-bottom: 10px;
+    text-decoration: none;
+    font-size: 0.8em;
+    margin-right: 40px;
+  }
+}
