@@ -4,9 +4,11 @@
   border-radius: 10px;
   color: #e8ded2;
   font-size: 1em;
-  width: 200px;
+  width: 160px;
   height: 20px;
-  margin-bottom: 10px;
+}
+.buttonStyle:hover {
+  cursor: pointer;
 }
 
 @media (min-width: 960px) {
@@ -15,5 +17,6 @@
     border: 1px solid #e8ded2;
     color: #3c2946;
     margin-top: 20px;
+    margin-bottom: 20px;
   }
 }

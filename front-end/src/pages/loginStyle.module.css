@@ -1,3 +1,8 @@
+h3 {
+  color: #3c2946;
+  margin-bottom: 15px;
+}
+
 .backgroundScreen {
   background-color: #3c2946;
   display: flex;
@@ -28,13 +33,18 @@
 }
 
 .backgroundContent .formStyle a {
-  align-self: flex-end;
+  align-self: center;
   color: #3c2946;
   padding-bottom: 10px;
   text-decoration: none;
 }
 
 @media (min-width: 960px) {
+  h3 {
+    color: #e8ded2;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
   .backgroundContent {
     display: flex;
     flex-direction: row;
@@ -55,11 +65,10 @@
   .backgroundContent .formStyle {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
     background-color: #3c2946;
     border-radius: 10px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    height: 380px;
+    height: 60vh;
   }
 
   .backgroundContent .formStyle a {
@@ -68,6 +77,12 @@
     padding-bottom: 10px;
     text-decoration: none;
     font-size: 0.8em;
-    margin-right: 40px;
+    margin-right: 48px;
+  }
+
+  .backgroundContent .formStyle a:last-child {
+    align-self: center;
+    margin-right: 0;
+    padding-bottom: 0px;
   }
 }
