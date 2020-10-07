@@ -11,7 +11,15 @@
   cursor: pointer;
 }
 
+a {
+  margin-top: 10px;
+}
+
 @media (min-width: 960px) {
+  a {
+    margin-top: 0;
+  }
+
   .buttonStyle {
     background-color: #e8ded2;
     border: 1px solid #e8ded2;

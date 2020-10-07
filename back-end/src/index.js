@@ -1,11 +1,26 @@
-const express = require("express"),
-  LoginRouter = require("./routers/loginRouter"),
-  RegisterRouter = require("./routers/registerRouter"),
-  app = express();
+const express = require("express");
+const { Sequelize } = require("sequelize");
 
-app.use(express.json());
+const userRouter = require("./Router/UsersRouter");
 
-app.use("/login", LoginRouter);
-app.use("/register", RegisterRouter);
+const app = express();
 
-app.listen(3000, () => console.log("Api Started!"));
+app.use("user", userRouter);
+
+/* conexão com o banco de dados*/
+
+const sequelize = new Sequelize("shareUp", "allanjsimpson", "290807", {
+  host: "localhost",
+  dialect: "mssql",
+});
+
+(async () => {
+  try {
+    await sequelize.authenticate();
+    console.log("funcionou");
+  } catch (error) {
+    console.error({ error: error.message });
+  }
+})();
+
+app.listen(3001);
