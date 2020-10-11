@@ -17,7 +17,14 @@ export default function Cadastro() {
             quis
           </p>
         </div>
-        <form className={css.formStyle} style={flexColumn} method="POST">
+
+        <form
+          className={css.formStyle}
+          enctype="application/x-www-form-urlencoded"
+          style={flexColumn}
+          method="POST"
+          action="http://localhost:3001/user/register"
+        >
           <h3>Faça o seu cadastro</h3>
           <InputShareUp type="text" placeholder="nome" name="nome" id="nome" />
           <InputShareUp
@@ -34,7 +41,7 @@ export default function Cadastro() {
           />
           <InputShareUp
             type="password"
-            placeholder="senha"
+            placeholder="Confirmar senha"
             name="confirmPassword"
             id="confirmPassword"
           />

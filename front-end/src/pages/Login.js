@@ -1,9 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../components/Logo";
-import InputShareUp from "../components/InputShareUp";
 import css from "./loginStyle.module.css";
-import ButtonShareUp from "../components/ButtonShareUp";
 
 export default function Login() {
   return (
@@ -14,14 +12,19 @@ export default function Login() {
             <Logo />
             <p>Faça seu login e comece a compartilhar conhecimento!</p>
           </div>
-          <form className={css.formStyle} style={flexColumn} method="POST">
-            <InputShareUp
+          <form
+            className={css.formStyle}
+            style={flexColumn}
+            method="POST"
+            enctype="application/x-www-form-urlencoded"
+          >
+            <input
               type="text"
               placeholder="Usuário"
               name="login-user"
               id="login-user"
             />
-            <InputShareUp
+            <input
               type="password"
               placeholder="Senha"
               name="login-password"
@@ -30,19 +33,19 @@ export default function Login() {
             <a href="http://" rel="next">
               Esqueci a senha
             </a>
-            <ButtonShareUp
+            <input
               newStyle={{ height: "30px", width: "130px" }}
               type={"submit"}
             >
               Entrar
-            </ButtonShareUp>
-            <NavLink to="/cadastro">
-              <ButtonShareUp
+            </input>
+            <NavLink to="/Cadastro">
+              <input
                 newStyle={{ fontSize: "0.8em", margin: 0 }}
                 type={"button"}
               >
                 Faça o seu cadastro
-              </ButtonShareUp>
+              </input>
             </NavLink>
           </form>
         </div>
