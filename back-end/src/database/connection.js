@@ -1,6 +1,6 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
-const sequelize = new Sequelize(
+const connection = new Sequelize(
   "ShareUp",
   process.env.DB_USER,
   process.env.DB_PASSWORD,
@@ -15,9 +15,10 @@ const sequelize = new Sequelize(
   }
 );
 module.exports = {
+  connection,
   testConnection: async () => {
     try {
-      await sequelize.authenticate();
+      await connection.authenticate();
       console.log("funcionou");
     } catch (error) {
       console.error({ error: error.message });

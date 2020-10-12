@@ -9,6 +9,7 @@ export default function Input({
   required,
   maxLength,
   minLength,
+  style,
 }) {
   return (
     <>
@@ -18,6 +19,7 @@ export default function Input({
         placeholder={placeholder}
         name={name}
         id={id}
+        style={style}
         required={required}
         maxLength={maxLength}
         minLength={minLength}

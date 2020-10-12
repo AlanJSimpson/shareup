@@ -1,5 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
+import InputShareUp from "../components/InputShareUp";
+import ButtonShareUp from "../components/ButtonShareUp";
 import Logo from "../components/Logo";
 import css from "./loginStyle.module.css";
 
@@ -16,36 +19,38 @@ export default function Login() {
             className={css.formStyle}
             style={flexColumn}
             method="POST"
-            enctype="application/x-www-form-urlencoded"
+            encType="application/x-www-form-urlencoded"
           >
-            <input
-              type="text"
-              placeholder="Usuário"
-              name="login-user"
-              id="login-user"
+            <InputShareUp
+              type="email"
+              placeholder="email"
+              name="email"
+              id="email"
+              style={{
+                background:
+                  'url("https://img.icons8.com/ios-glyphs/30/000000/new-post.png") no-repeat 7px',
+                backgroundSize: "22px 22px",
+              }}
             />
-            <input
+
+            <InputShareUp
               type="password"
-              placeholder="Senha"
-              name="login-password"
-              id="login-password"
+              placeholder="senha"
+              name="password"
+              id="password"
+              style={{
+                background:
+                  'url("https://img.icons8.com/metro/26/000000/password.png") no-repeat 7px 2px ',
+                backgroundSize: "22px 22px",
+              }}
             />
-            <a href="http://" rel="next">
+
+            <a id="forgot-password" href="https//www.google.com.br">
               Esqueci a senha
             </a>
-            <input
-              newStyle={{ height: "30px", width: "130px" }}
-              type={"submit"}
-            >
-              Entrar
-            </input>
-            <NavLink to="/Cadastro">
-              <input
-                newStyle={{ fontSize: "0.8em", margin: 0 }}
-                type={"button"}
-              >
-                Faça o seu cadastro
-              </input>
+            <ButtonShareUp type="submit">Entrar</ButtonShareUp>
+            <NavLink to="/user/register">
+              <span> Faça o seu cadastro</span>
             </NavLink>
           </form>
         </div>
