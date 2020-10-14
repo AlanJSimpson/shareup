@@ -6,7 +6,7 @@ const connection = new Sequelize(
   process.env.DB_PASSWORD,
   {
     host: "localhost",
-    dialect: "mssql",
+    dialect: process.env.DB_DIALECT,
     dialectOptions: {
       options: {
         validateBulkLoadParameters: true,
