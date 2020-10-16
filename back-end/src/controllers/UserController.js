@@ -1,14 +1,17 @@
 const UserModel = require("../models/UserModel");
+const bcrypt = require('bcrypt');
+
 
 module.exports = {
   saveNewUser: async (req, res) => {
     let { nome, email, registerPassword, confirmPassword } = req.body;
     if (registerPassword === confirmPassword) {
       try {
+        let hashPass = await bcrypt.hash(registerPassword, 10)
         const registerUser = await UserModel.create({
           nome,
           email,
-          senha: registerPassword,
+          senha: hashPass,
         });
 
         res.status(201).send("cadastro efetuado");
