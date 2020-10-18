@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 const { connection } = require("../database/connection");
 
-const registered_user = connection.define(
+const RegisteredUser = connection.define(
   "registered_user",
   {
     id_registered_user: {
@@ -23,9 +23,7 @@ const registered_user = connection.define(
       allowNull: false,
     },
   },
-  { timestamps: false ,
-    tableName: 'registered_users',
-  }
+  { timestamps: false, tableName: "registered_users" }
 );
 
-module.exports = registered_user;
+module.exports = RegisteredUser;
