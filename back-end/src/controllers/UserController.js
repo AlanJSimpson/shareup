@@ -1,4 +1,4 @@
-const UserModel = require("../models/UserModel");
+const registered_user = require("../models/registered_user");
 const bcrypt = require('bcrypt');
 
 
@@ -8,7 +8,7 @@ module.exports = {
     if (registerPassword === confirmPassword) {
       try {
         let hashPass = await bcrypt.hash(registerPassword, 10)
-        const registerUser = await UserModel.create({
+        await registered_user.create({
           nome,
           email,
           senha: hashPass,
