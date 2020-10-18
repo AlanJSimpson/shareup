@@ -23,7 +23,10 @@ const RegisteredUser = connection.define(
       allowNull: false,
     },
   },
-  { timestamps: false, tableName: "registered_users" }
+  { 
+    timestamps: false, 
+    tableName: "registered_users" 
+  }
 );
 
 module.exports = RegisteredUser;
