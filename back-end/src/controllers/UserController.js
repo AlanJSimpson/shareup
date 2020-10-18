@@ -5,7 +5,7 @@ module.exports = {
     let { nome, email, registerPassword, confirmPassword } = req.body;
     if (registerPassword === confirmPassword) {
       try {
-        const registerUser = await UserModel.create({
+        await UserModel.create({
           nome,
           email,
           senha: registerPassword,
