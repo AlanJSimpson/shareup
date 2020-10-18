@@ -2,10 +2,10 @@ const { DataTypes } = require("sequelize");
 
 const { connection } = require("../database/connection");
 
-const User = connection.define(
-  "user",
+const registered_user = connection.define(
+  "registered_user",
   {
-    id_user: {
+    id_registered_user: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -23,7 +23,9 @@ const User = connection.define(
       allowNull: false,
     },
   },
-  { timestamps: false }
+  { timestamps: false ,
+    tableName: 'registered_users',
+  }
 );
 
-module.exports = User;
+module.exports = registered_user;
