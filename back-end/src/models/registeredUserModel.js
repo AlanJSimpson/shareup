@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
-
 const { connection } = require("../database/connection");
+
 
 const RegisteredUser = connection.define(
   "registered_user",
@@ -23,10 +23,13 @@ const RegisteredUser = connection.define(
       allowNull: false,
     },
   },
-  { 
-    timestamps: false, 
-    tableName: "registered_users" 
+  {
+    timestamps: false,
+    tableName: "registered_users"
   }
 );
+
+
+// ProfileUser.hasOne(RegisteredUser, {foreignKey: 'id_registered_user'});
 
 module.exports = RegisteredUser;

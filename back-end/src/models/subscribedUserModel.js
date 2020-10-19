@@ -1,8 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
 
-
-
 const SubscribedUser = connection.define(
     "subscribed_user",
     {
@@ -17,8 +15,6 @@ const SubscribedUser = connection.define(
         timestamps: false
     }
 );
-
-
 
 
 module.exports = SubscribedUser;

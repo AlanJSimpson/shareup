@@ -1,7 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
-const Events = require('./eventModel');
-const ProfileUser = require('./profileUserModel');
 
 const Adress = connection.define(
   "adress",
@@ -41,8 +39,5 @@ const Adress = connection.define(
   }
 );
 
-
-Adress.belongsTo(Events);
-Adress.belongsTo(ProfileUser);
 
 module.exports = Adress;

@@ -1,8 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
-import Events from './eventModel';
-import ProfileUser from './profileUserModel'
-
 
 const Image = connection.define(
     "image",
@@ -28,7 +25,5 @@ const Image = connection.define(
 );
 
 
-Image.belongsTo(Events);
-Image.belongsTo(ProfileUser);
 
 module.exports = Image;

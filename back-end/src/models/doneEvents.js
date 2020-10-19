@@ -1,8 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
 
-
-
 const DoneEvent = connection.define(
     "done_event",
     {
@@ -21,7 +19,6 @@ const DoneEvent = connection.define(
         timestamps: false
     }
 );
-
 
 
 

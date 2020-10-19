@@ -1,4 +1,6 @@
 const { Sequelize } = require("sequelize");
+
+
 require("dotenv").config();
 const connection = new Sequelize(
   "shareup",
@@ -14,6 +16,9 @@ const connection = new Sequelize(
     },
   }
 );
+
+
+
 module.exports = {
   connection,
   testConnection: async () => {
@@ -23,5 +28,6 @@ module.exports = {
     } catch (error) {
       console.error({ error: error.message });
     }
-  },
+  }
 };
+
