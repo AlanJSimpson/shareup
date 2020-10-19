@@ -1,9 +1,5 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
-const Comment = require('./commentsModel');
-const DoneEvent = require('./doneEvents');
-const SubscribedUser = require('./subscribedUserModel');
-
 
 const Event = connection.define(
     "event",
@@ -22,20 +18,12 @@ const Event = connection.define(
             allowNull: false,
         },
         event_date: {
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
             allowNull: false,
         },
         category: {
             type: DataTypes.STRING,
             allowNull: false,
-        },
-        created_at: {
-            type: DataTypes.DATE,
-            allowNull: true,
-        },
-        updated_at: {
-            type: DataTypes.DATE,
-            allowNull: true,
         }
 
     },
@@ -44,8 +32,5 @@ const Event = connection.define(
     }
 );
 
-Event.hasMany(Comment);
-Event.hasMany(DoneEvent);
-Event.hasMany(SubscribedUser);
 
 module.exports = Event;

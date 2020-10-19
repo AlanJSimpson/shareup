@@ -23,5 +23,4 @@ const Comment = connection.define(
 );
 
 
-
 module.exports = Comment;
