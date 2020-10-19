@@ -1,5 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
+const ProfileUser = require("./profileUserModel");
 
 
 const RegisteredUser = connection.define(
@@ -30,6 +31,6 @@ const RegisteredUser = connection.define(
 );
 
 
-// ProfileUser.hasOne(RegisteredUser, {foreignKey: 'id_registered_user'});
+RegisteredUser.hasOne(ProfileUser, { foreignKey: 'id_registered_user' });
 
 module.exports = RegisteredUser;

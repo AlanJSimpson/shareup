@@ -12,13 +12,13 @@ module.exports = {
         try {
 
             await RegisteredUser.sync({ force: true });
+            await ProfileUser.sync({ force: true });
+            await Event.sync({ force: true });
             await Image.sync({ force: true });
             await Adress.sync({ force: true });
-            await Event.sync({ force: true });
             await Comment.sync({ force: true });
             await DoneEvent.sync({ force: true });
             await SubscribedUser.sync({ force: true });
-            await ProfileUser.sync({ force: true });
 
         } catch (error) {
             console.log(error)
