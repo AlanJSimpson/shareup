@@ -31,6 +31,6 @@ const RegisteredUser = connection.define(
 );
 
 
-RegisteredUser.hasOne(ProfileUser, { foreignKey: 'id_registered_user' });
+RegisteredUser.hasOne(ProfileUser, { foreignKey: 'fk_registered_user' });
 
 module.exports = RegisteredUser;

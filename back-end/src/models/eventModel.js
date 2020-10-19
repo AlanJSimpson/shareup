@@ -37,11 +37,11 @@ const Event = connection.define(
     }
 );
 
-Event.hasOne(Image, { foreignKey: 'id_events' });
-Event.hasOne(Adress, { foreignKey: 'id_events' });
-Event.hasMany(Comment, { foreignKey: 'id_events' });
-Event.hasMany(SubscribedUser, { foreignKey: 'id_events' });
-Event.hasMany(DoneEvent, { foreignKey: 'id_events' });
+Event.hasOne(Image, { foreignKey: 'fk_events' });
+Event.hasOne(Adress, { foreignKey: 'fk_events' });
+Event.hasMany(Comment, { foreignKey: 'fk_events' });
+Event.hasMany(SubscribedUser, { foreignKey: 'fk_events' });
+Event.hasMany(DoneEvent, { foreignKey: 'fk_events' });
 
 
 

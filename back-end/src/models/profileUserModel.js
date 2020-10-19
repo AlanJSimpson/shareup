@@ -33,12 +33,12 @@ const ProfileUser = connection.define("profile_user", {
   }
 );
 
-ProfileUser.hasOne(Image, { foreignKey: 'id_profile_user' });
-ProfileUser.hasMany(Comment, { foreignKey: 'id_profile_user' });
-ProfileUser.hasMany(SubscribedUser, { foreignKey: 'id_profile_user' });
-ProfileUser.hasMany(DoneEvent, { foreignKey: 'id_profile_user' });
-ProfileUser.hasMany(Adress, { foreignKey: 'id_profile_user' });
-ProfileUser.hasMany(Event, { foreignKey: 'id_profile_user' });
+ProfileUser.hasOne(Image, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(Comment, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(SubscribedUser, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(DoneEvent, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(Adress, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(Event, { foreignKey: 'fk_profile_user' });
 
 
 module.exports = ProfileUser;
