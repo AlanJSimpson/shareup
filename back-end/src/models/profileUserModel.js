@@ -1,5 +1,11 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
+const Adress = require('./adressModel');
+const Image = require('./imageModel');
+const Event = require('./eventModel');
+const Comment = require('./commentsModel')
+const SubscribedUser = require("./subscribedUserModel");
+const DoneEvent = require("./doneEvents");
 
 const ProfileUser = connection.define("profile_user", {
   id_profile_user: {
@@ -27,6 +33,12 @@ const ProfileUser = connection.define("profile_user", {
   }
 );
 
+ProfileUser.hasOne(Image, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(Comment, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(SubscribedUser, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(DoneEvent, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(Adress, { foreignKey: 'fk_profile_user' });
+ProfileUser.hasMany(Event, { foreignKey: 'fk_profile_user' });
 
 
 module.exports = ProfileUser;
