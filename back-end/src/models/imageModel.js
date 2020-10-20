@@ -11,11 +11,11 @@ const Image = connection.define(
         },
         avatar_user: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         image_event: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         }
     },
     {

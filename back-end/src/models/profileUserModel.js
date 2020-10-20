@@ -3,9 +3,9 @@ const { connection } = require("../database/connection");
 const Adress = require('./adressModel');
 const Image = require('./imageModel');
 const Event = require('./eventModel');
-const Comment = require('./commentsModel')
+const Comment = require('./commentModel')
 const SubscribedUser = require("./subscribedUserModel");
-const DoneEvent = require("./doneEvents");
+const DoneEvent = require("./doneEvent");
 
 const ProfileUser = connection.define("profile_user", {
   id_profile_user: {

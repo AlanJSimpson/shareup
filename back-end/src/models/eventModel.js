@@ -1,9 +1,9 @@
 const { DataTypes } = require("sequelize");
 const { connection } = require("../database/connection");
 const Image = require('./imageModel');
-const Comment = require('./commentsModel');
+const Comment = require('./commentModel');
 const SubscribedUser = require("./subscribedUserModel");
-const DoneEvent = require("./doneEvents");
+const DoneEvent = require("./doneEvent");
 const Adress = require("./adressModel");
 
 const Event = connection.define(
