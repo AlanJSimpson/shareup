@@ -1,36 +1,35 @@
-const { DataTypes } = require("sequelize");
-const { connection } = require("../database/connection");
-const ProfileUser = require("./profileUserModel");
+module.exports = (sequelize, DataTypes) => {
 
 
-const RegisteredUser = connection.define(
-  "registered_user",
-  {
-    id_registered_user: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
+  const RegisteredUser = sequelize.define(
+    "registered_user",
+    {
+      id_registered_user: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      nome: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      senha: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
     },
-    nome: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    senha: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    timestamps: false,
-    tableName: "registered_users"
-  }
-);
+    {
+      timestamps: false,
+      tableName: "registered_users"
+    }
+  );
+  
+  RegisteredUser.sync({ force: true });
+  return RegisteredUser
+}
 
 
-RegisteredUser.hasOne(ProfileUser, { foreignKey: 'fk_registered_user' });
-
-module.exports = RegisteredUser;

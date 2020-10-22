@@ -26,7 +26,7 @@ module.exports = {
   },
   logInUser: passport.authenticate('local', {
     successRedirect: 'http://localhost:3000/home',
-    failureRedirect: '/users/register',
+    failureRedirect: 'http://localhost:3000/user/register',
     failureFlash: true
     
   })

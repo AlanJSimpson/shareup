@@ -1,44 +1,33 @@
-const { DataTypes } = require("sequelize");
-const { connection } = require("../database/connection");
-const Adress = require('./adressModel');
-const Image = require('./imageModel');
-const Event = require('./eventModel');
-const Comment = require('./commentModel')
-const SubscribedUser = require("./subscribedUserModel");
-const DoneEvent = require("./doneEvent");
+module.exports = (sequelize, DataTypes) => {
 
-const ProfileUser = connection.define("profile_user", {
-  id_profile_user: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+
+  const ProfileUser = sequelize.define("profile_user", {
+    id_profile_user: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    sexo: {
+      type: DataTypes.ENUM("Masculino", "Feminino", "Não Binário"),
+      allowNull: false,
+    },
+    cel: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    about: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
+  
   },
-  sexo: {
-    type: DataTypes.ENUM("Masculino", "Feminino", "Não Binário"),
-    allowNull: false,
-  },
-  cel: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  about: {
-    type: DataTypes.TEXT,
-    allowNull: true,
-  },
+    {
+      timestamps: false,
+      tableName: 'profile_users',
+    }
+  );
 
-},
-  {
-    timestamps: false,
-    tableName: 'profile_users',
-  }
-);
+    ProfileUser.sync({ force: true });
+    return ProfileUser
+}
 
-ProfileUser.hasOne(Image, { foreignKey: 'fk_profile_user' });
-ProfileUser.hasMany(Comment, { foreignKey: 'fk_profile_user' });
-ProfileUser.hasMany(SubscribedUser, { foreignKey: 'fk_profile_user' });
-ProfileUser.hasMany(DoneEvent, { foreignKey: 'fk_profile_user' });
-ProfileUser.hasMany(Adress, { foreignKey: 'fk_profile_user' });
-ProfileUser.hasMany(Event, { foreignKey: 'fk_profile_user' });
-
-
-module.exports = ProfileUser;

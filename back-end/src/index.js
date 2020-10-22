@@ -1,12 +1,13 @@
 const express = require("express");
 const userRouter = require("./Router/UsersRouter");
-const { testConnection } = require("./database/connection.js");
-const { syncTables } = require('./models/syncTables');
 const flash = require('express-flash');
 const session = require('express-session');
 const passport = require("passport");
 const initializePassport = require('./passport/passport-config');
 const User = require('./models/registeredUserModel');
+const db = require('./models/index');
+
+
 
 initializePassport(
   passport,
@@ -15,8 +16,8 @@ initializePassport(
 )
 
 
-syncTables();
-testConnection();
+db.testConnection();
+
 
 const app = express();
 

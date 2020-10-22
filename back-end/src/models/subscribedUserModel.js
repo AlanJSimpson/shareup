@@ -1,20 +1,23 @@
-const { DataTypes } = require("sequelize");
-const { connection } = require("../database/connection");
+module.exports = (sequelize, DataTypes) => {
 
-const SubscribedUser = connection.define(
-    "subscribed_user",
-    {
-        id_subscribed_user: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
+
+    const SubscribedUser = sequelize.define(
+        "subscribed_user",
+        {
+            id_subscribed_user: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+            }
+        },
+        {
+            tableName: 'subscribed_users',
+            timestamps: false
         }
-    },
-    {
-        tableName: 'subscribed_users',
-        timestamps: false
-    }
-);
+    );
+    
+    SubscribedUser.sync({ force: true });
+    return SubscribedUser
+}
 
 
-module.exports = SubscribedUser;

@@ -1,26 +1,27 @@
-const { DataTypes } = require("sequelize");
-const { connection } = require("../database/connection");
+module.exports = (sequelize, DataTypes) => {
 
 
 
-const Comment = connection.define(
-    "comment",
-    {
-        id_comment: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
+    const Comment = sequelize.define(
+        "comment",
+        {
+            id_comment: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+            },
+            message: {
+                type: DataTypes.TEXT,
+                allowNull: false
+            }
         },
-        message: {
-            type: DataTypes.TEXT,
-            allowNull: false
+        {
+            tableName: 'comments',
+            timestamps: false
         }
-    },
-    {
-        tableName: 'comments',
-        timestamps: false
-    }
-);
+    );
+    Comment.sync({ force: true });
+    return Comment
+}
 
 
-module.exports = Comment;
