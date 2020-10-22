@@ -1,0 +1,193 @@
+.Nav{
+    height: 80px;
+    width: 100%;
+    background-color: rgb(28, 27, 27);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbarContainer{
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoContainer{
+    display: flex;
+    font-size: 30px;
+}
+.logoContainer:hover{
+    cursor: pointer;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    margin-left: 0.7rem;
+    color: white;
+    font-weight: 700;
+}
+
+.logoImg{
+    color: white;
+    font-size: 2.5rem;
+    
+}
+
+.navMenu{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    height: 100%;
+}
+
+
+.navMenu li{
+    
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px;
+}
+.navMenu li:hover{
+    border-bottom: 5px solid white;
+    cursor: pointer;
+}
+
+
+
+.sideMenu{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    background-color: #242222;
+    height: calc(100% - 80px);
+    left: -100%;
+    transition: all 0.3s ease-out;
+    z-index: 9999;
+}
+
+.sideMenu ul{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+
+.sideMenu li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 12vh;
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+}
+.sideMenu li:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.btnContainer{
+    height: 12vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideMenuBtn{
+    font-size: 1.2rem;
+    height: 60px;
+    width: 80%;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.sideMenuBtn:hover, .navbarBtn:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+
+}
+
+.navbarBtn{
+    margin-left: 2rem;
+    font-size: 1.2rem;
+    height: 50px;
+    width: 90px;
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+.hamburguerActive{
+    transform: rotate(-90deg);
+}
+
+.menuActive{
+    left: 0;
+}
+
+
+
+@media screen and (max-width: 960px) {
+    .navMenu{
+        display: none;
+
+    }
+
+    .hamburguer{
+        display: block;
+    }
+
+    .logoContainer{
+        margin-left: 2rem;
+    }
+    .navbarContainer{
+        width: 100%;
+    }
+
+    .logoImg{
+        font-size: 2rem;
+    }
+    .logo{
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media only screen and (orientation: landscape) and (max-width: 778px){
+    
+    .sideMenu{
+        top: 80px;    
+    }
+
+    .sideMenu li {
+        height: 18vh;
+       
+    }
+    .sideMenuBtn{
+        margin-top: 1.5rem;
+    }
+}
+

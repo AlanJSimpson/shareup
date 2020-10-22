@@ -20,6 +20,7 @@ export default function Login() {
             style={flexColumn}
             method="POST"
             encType="application/x-www-form-urlencoded"
+            action="http://localhost:3001/user/login"
           >
             <InputShareUp
               type="email"
