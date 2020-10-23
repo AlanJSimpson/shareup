@@ -18,25 +18,23 @@ function Navbar() {
         <nav className={styles.Nav}>
             <div className={styles.navbarContainer}>
                 <div className={styles.logoContainer}>
-                    <i className={cx("fas fa-caravan", styles.logoImg)}></i>
-                    
-                    <div className={styles.logo}>Home</div>
+                    <i className={cx("fas fa-home", styles.logoImg)}></i>
                 </div>
 
                 <ul className={styles.navMenu}>
-                    <li className={styles.navItem}>Produtos</li>
-                    <li className={styles.navItem}>Servicos</li>
-                    <li className={styles.navItem}>Sobre</li>
-                    <button className={styles.navbarBtn}>Sign Up</button>
-                        
+                    <li className={styles.navItem}>Principal</li>
+                    <li className={styles.navItem}>Meus Eventos</li>
+                    <li className={styles.navItem}>Meu Perfil</li>
+                    {/* <button className={styles.navbarBtn}>Sair</button> */}
+                    <div className={styles.navbarBtn}><span className={styles.navbarBtnText}>S</span></div>
                 </ul>
                 <HamburguerToX hamLineHeight={5} hamColor={'white'} hamContainerSize={30} showMenu={showMenu} setShowMenu={setShowMenu} hamburguerIsClicked={hamburguerIsClicked} setHamburguerIsClicked={setHamburguerIsClicked} />
 
                 <div className={cx(styles.sideMenu, { [styles.menuActive]: showMenu })}>
                     <ul >
-                        <li className={styles.sideMenuItem}>Produtos</li>
-                        <li className={styles.sideMenuItem}>Servicos</li>
-                        <li className={styles.sideMenuItem}>Sobre</li>
+                        <li className={styles.sideMenuItem}>Principal</li>
+                        <li className={styles.sideMenuItem}>Meus Eventos</li>
+                        <li className={styles.sideMenuItem}>Meu Perfil</li>
                         <div className={styles.btnContainer}>
                             <button className={styles.sideMenuBtn}>Sign Up</button>
                         </div>
