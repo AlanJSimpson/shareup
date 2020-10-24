@@ -146,12 +146,14 @@
 }
 
 .categoriesMenu{
-    top: 35vh;
+    top:35vh;
     position: absolute;
     background-color: #6214A8 ;
     width: 100%;
-    z-index: -99;
+    z-index: -9999999;
+    transition: all 0.3s linear;
 }
+
 
 .categoriesMenuList > li {
     height: 50px;
@@ -253,18 +255,35 @@
     
 }
 
-@media only screen and (orientation: landscape) and (max-width: 768px){
+@media only screen and (orientation: landscape){
     
-    .sideMenu{
-        top: 80px;    
+    .sideMenu > ul {
+        height: 100vh;
+    }
+   
+    .sideMenuItem {
+        height: 150px;
+    }
+    .btnContainer{
+        top: 100vh;
     }
 
-    .sideMenu li {
-        height: 18vh;
-       
+    .btnContainerActive{
+        top: calc(100vh + 300px);
     }
-    .sideMenuBtn{
-        margin-top: 1.5rem;
+
+    .categoriesMenu{
+        top: 100vh;
+        
+    }
+
+    .categoriesMenu{
+        height: 1px;
+        
+    }
+    
+    .categoriesMenuActive{
+        height: inherit;
     }
 }
 

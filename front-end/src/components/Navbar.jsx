@@ -57,14 +57,15 @@ function Navbar() {
         />
 
         <div className={cx(styles.sideMenu, { [styles.menuActive]: showMenu })}>
-          <ul className={styles.sindeMenuList}>
+          <ul className={styles.sideMenuList}>
             <li className={styles.sideMenuItem}>Principal</li>
             <li className={styles.sideMenuItem}>Meus Eventos</li>
             <li className={styles.sideMenuItem}>Meu Perfil</li>
             <li className={styles.sideMenuItem}
             onClick={e => setCategoriesMenuOpen(!categoriesMenuOpen)}
             >Categorias <i className={cx("fas fa-chevron-right", styles.categoriesIcon, { [styles.categoriesIconActive]: categoriesMenuOpen })}></i></li>
-            <div className={styles.categoriesMenu}>
+            
+            <div className={cx(styles.categoriesMenu, { [styles.categoriesMenuActive]: categoriesMenuOpen })}>
                 <ul className={styles.categoriesMenuList}>
                     <li className={styles.categoriesMenuItem}>Esportes</li>
                     <li className={styles.categoriesMenuItem}>Idioma</li>
@@ -74,6 +75,7 @@ function Navbar() {
                     <li className={styles.categoriesMenuItem}>Arte</li>
                 </ul>
             </div>
+            
             <div className={cx(styles.btnContainer, { [styles.btnContainerActive]: categoriesMenuOpen })}>
               <button className={styles.sideMenuBtn}>Sair</button>
             </div>
