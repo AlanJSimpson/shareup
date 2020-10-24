@@ -13,7 +13,7 @@ function Navbar() {
       setShowMenu(false);
       setHamburguerIsClicked(false);
     }
-    if (window.innerWidth <= 960) {
+    if (window.innerWidth <= 768) {
       setConfigMenuClicked(false);
     }
   });
@@ -35,15 +35,15 @@ function Navbar() {
           >
             <span className={styles.navbarBtnText}>S</span>
           </div>
-          {configMenuClicked && (
-            <div className={styles.configMenu}>
+          
+            <div className={cx(styles.configMenu, { [styles.configMenuActive]: configMenuClicked })}>
               <ul className={styles.configMenuList}>
                 <li className={styles.configMenuItem}>item 1</li>
                 <li className={styles.configMenuItem}>item 2</li>
                 <li className={styles.configMenuItem}>item 3</li>
               </ul>
             </div>
-          )}
+          
         </ul>
         <HamburguerToX
           hamLineHeight={5}
@@ -60,8 +60,9 @@ function Navbar() {
             <li className={styles.sideMenuItem}>Principal</li>
             <li className={styles.sideMenuItem}>Meus Eventos</li>
             <li className={styles.sideMenuItem}>Meu Perfil</li>
+            <li className={styles.sideMenuItem}>Categorias</li>
             <div className={styles.btnContainer}>
-              <button className={styles.sideMenuBtn}>Sign Up</button>
+              <button className={styles.sideMenuBtn}>Sair</button>
             </div>
           </ul>
         </div>

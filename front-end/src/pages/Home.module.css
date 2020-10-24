@@ -35,6 +35,10 @@
     justify-content: space-around;
 }
 
+.categoriesMenu li:hover {
+  cursor: pointer;
+}
+
 .dividerBar{
     height: 80%;
     width: 1.5px;
