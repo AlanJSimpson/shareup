@@ -80,6 +80,12 @@
 }
 
 
+@media only screen and (max-width: 768px) {
+  .categoriesMenu{
+    display: none;
+  } 
+}
+
 
 
 
