@@ -133,15 +133,21 @@
 .configMenu{
     position: absolute;
     width: 150px;
-    top: 81px;
+    top: -50px;
     right: 0px;
-    background-color: #7f25ce;
+    background-color: #6214A8;
+    transition: 0.2s all ease-out;
+    z-index: -99;
+}
+.configMenuActive{
+    top: 81px;
 }
 .configMenuList{
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
 .configMenuItem{
     margin: 0.5rem 0;
@@ -150,6 +156,9 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+
+
 .navbarBtn{
     
     background-color: white;
@@ -184,7 +193,7 @@
 
 
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 768px) {
     .navMenu{
         display: none;
 
@@ -210,7 +219,7 @@
     
 }
 
-@media only screen and (orientation: landscape) and (max-width: 778px){
+@media only screen and (orientation: landscape) and (max-width: 768px){
     
     .sideMenu{
         top: 80px;    

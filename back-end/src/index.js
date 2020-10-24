@@ -5,11 +5,11 @@ const session = require("express-session");
 const passport = require("passport");
 const initializePassport = require("./passport/passport-config");
 const db = require("./models/index");
-const { register_user } = require("./models");
+const { registered_user } = require("./models");
 
 initializePassport(
   passport,
-  async (email) => await register_user.findOne({ where: { email } }),
+  async (email) => await registered_user.findOne({ where: { email } }),
   async (id) =>
     await register_user.findByPk({ where: { id_registered_user: id } })
 );
