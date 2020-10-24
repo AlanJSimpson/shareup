@@ -47,7 +47,7 @@
     font-weight: 400;
     font-size: 1.3rem;
     height: 100%;
-    margin-right: 1rem;
+    margin-right: 2rem;
 }
 
 
@@ -59,7 +59,7 @@
     justify-content: center;
     width: 140px;
 }
-.navMenu li:hover{
+.navMenu > li:hover{
     border-bottom: 5px solid white;
     cursor: pointer;
 }
@@ -130,6 +130,26 @@
 
 }
 
+.configMenu{
+    position: absolute;
+    width: 150px;
+    top: 81px;
+    right: 0px;
+    background-color: #7f25ce;
+}
+.configMenuList{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.configMenuItem{
+    margin: 0.5rem 0;
+}
+.configMenuItem:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
 .navbarBtn{
     
     background-color: white;
@@ -140,6 +160,7 @@
     border-radius: 50%;
     width: 50px;
     height: 50px;
+    position: relative;
     
 }
 
