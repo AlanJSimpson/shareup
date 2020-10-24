@@ -1,6 +1,4 @@
 module.exports = (sequelize, DataTypes) => {
-
-
   const Adress = sequelize.define(
     "adress",
     {
@@ -34,16 +32,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
     },
-    { timestamps: false ,
-      tableName: 'adress',
-    }
+    { timestamps: false, tableName: "adress" }
   );
 
   Adress.sync({ force: true });
- return Adress
-
- 
-}
-
-
-
+  return Adress;
+};

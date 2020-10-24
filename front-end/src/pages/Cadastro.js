@@ -20,7 +20,7 @@ export default function Cadastro() {
 
         <form
           className={css.formStyle}
-          enctype="application/x-www-form-urlencoded"
+          encType="application/x-www-form-urlencoded"
           style={flexColumn}
           method="POST"
           action="http://localhost:3001/user/register"

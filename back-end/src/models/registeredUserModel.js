@@ -1,6 +1,4 @@
 module.exports = (sequelize, DataTypes) => {
-
-
   const RegisteredUser = sequelize.define(
     "registered_user",
     {
@@ -24,12 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       timestamps: false,
-      tableName: "registered_users"
+      tableName: "registered_users",
     }
   );
-  
+
   RegisteredUser.sync({ force: true });
-  return RegisteredUser
-}
-
-
+  return RegisteredUser;
+};
