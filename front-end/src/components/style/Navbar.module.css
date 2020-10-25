@@ -65,8 +65,8 @@
 
 .sideMenu {
   position: absolute;
-  top: 80px;
-  width: 100%;
+  top: 79px;
+  width: 70%;
   left: -100%;
   transition: all 0.3s ease-out;
   z-index: 9999;
@@ -80,20 +80,27 @@
   flex-direction: column;
   align-items: center;
   list-style-type: none;
-  color: white;
   font-weight: 700;
   font-size: 1.2rem;
   position: relative;
 }
 
 .sideMenu li {
+  color: white;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
+  height: 100%;
+  flex-grow: 1;
   width: 100%;
   transition: all 0.2s ease-in-out;
+}
+
+.sideMenu a {
+  height: 100%;
+  flex-grow: 1;
+  width: 100%;
 }
 .sideMenu li:hover {
   background-color: white;
@@ -109,12 +116,12 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  top: 35vh;
+  top: calc(35vh - 1px);
   transition: all 0.2s linear;
 }
 
 .btnContainerActive {
-  top: calc(35vh + 300px);
+  top: calc(35vh + 299px);
 }
 
 .sideMenuBtn {
@@ -141,6 +148,7 @@
 }
 
 .categoriesMenu {
+  box-shadow: inset 0 0 20px 0px rgba(0,0,0,0.50), 0 15px 12px rgba(0,0,0,0.22);
   top: 35vh;
   position: absolute;
   background-color: #6214a8;
@@ -248,11 +256,12 @@
     height: 150px;
   }
   .btnContainer {
-    top: 100vh;
+    top: calc(100vh - 1px);
+
   }
 
   .btnContainerActive {
-    top: calc(100vh + 300px);
+    top: calc(100vh + 299px);
   }
 
   .categoriesMenu {

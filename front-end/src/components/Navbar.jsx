@@ -12,7 +12,7 @@ function Navbar() {
   const [categoriesMenuOpen, setCategoriesMenuOpen] = useState(false);
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth >= 960) {
+    if (window.innerWidth >= 768) {
       setShowMenu(false);
       setHamburguerIsClicked(false);
     }
