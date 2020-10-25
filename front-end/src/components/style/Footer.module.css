@@ -6,6 +6,17 @@
   padding: 15px 0px;
 }
 
+@media (max-width: 720px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .socialMedia,
+  .enterprise {
+    margin-bottom: 20px;
+  }
+}
+
 .socialMedia {
   display: flex;
   flex-direction: column;
@@ -34,4 +45,6 @@
 .contacts h3 {
   color: white;
   text-align: center;
+  font-size: 1.5em;
+  font-weight: inherit;
 }

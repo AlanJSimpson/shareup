@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 import InputShareUp from "../components/InputShareUp";
 import ButtonShareUp from "../components/ButtonShareUp";
-import Logo from "../components/Logo";
 import css from "./loginStyle.module.css";
 
 export default function Login() {
@@ -12,7 +11,6 @@ export default function Login() {
       <div className={css.backgroundScreen}>
         <div className={css.backgroundContent}>
           <div className={css.apresentation} style={flexColumn}>
-            <Logo />
             <p>Faça seu login e comece a compartilhar conhecimento!</p>
           </div>
           <form

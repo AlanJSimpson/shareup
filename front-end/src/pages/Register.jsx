@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../components/Logo";
 import css from "./loginStyle.module.css";
 import InputShareUp from "../components/InputShareUp";
 import ButtonShareUp from "../components/ButtonShareUp";
@@ -10,7 +9,9 @@ export default function Cadastro() {
     <div className={css.backgroundScreen}>
       <div className={css.backgroundContent}>
         <div className={css.apresentation} style={flexColumn}>
-          <Logo />
+          <div className={css.logo}>
+            <img src="../images/logo.png" alt="logo" />
+          </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus at
             vitae iusto consequatur nulla. Totam incidunt asperiores aperiam
