@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import Event from "./Event";
 import css from "./style/boxEvents.module.css";
 

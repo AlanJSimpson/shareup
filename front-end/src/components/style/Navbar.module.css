@@ -7,10 +7,6 @@
   justify-content: center;
 }
 
-a {
-  text-decoration: none;
-}
-
 .navbarContainer {
   height: 100%;
   width: 100%;
@@ -55,15 +51,14 @@ a {
 
 .navMenu a {
   height: 100%;
-  color: white;
   display: flex;
+
+  color: white;
   align-items: center;
   justify-content: center;
   width: 140px;
 }
-
 .navMenu > a:hover {
-  color: white;
   border-bottom: 5px solid white;
   cursor: pointer;
 }
@@ -72,15 +67,14 @@ a {
   position: absolute;
   top: 80px;
   width: 100%;
-  background-color: #7f25ce;
-  height: calc(100% - 80px);
   left: -100%;
   transition: all 0.3s ease-out;
   z-index: 9999;
 }
 
-.sideMenu ul {
-  height: 100%;
+.sideMenu > ul {
+  background-color: #7f25ce;
+  height: 35vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -89,13 +83,15 @@ a {
   color: white;
   font-weight: 700;
   font-size: 1.2rem;
+  position: relative;
 }
 
 .sideMenu li {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 12vh;
+  height: 80px;
   width: 100%;
   transition: all 0.2s ease-in-out;
 }
@@ -106,14 +102,23 @@ a {
 }
 
 .btnContainer {
-  height: 12vh;
+  background-color: #7f25ce;
+  position: absolute;
+  height: 65vh;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  top: 35vh;
+  transition: all 0.2s linear;
+}
+
+.btnContainerActive {
+  top: calc(35vh + 300px);
 }
 
 .sideMenuBtn {
+  margin-top: 1rem;
   font-size: 1.2rem;
   height: 60px;
   width: 80%;
@@ -122,6 +127,30 @@ a {
   color: white;
   border-radius: 5px;
   font-weight: 700;
+}
+
+.categoriesIcon {
+  align-self: center;
+  position: absolute;
+  right: 40px;
+  transition: all 0.1s linear;
+}
+
+.categoriesIconActive {
+  transform: rotate(90deg);
+}
+
+.categoriesMenu {
+  top: 35vh;
+  position: absolute;
+  background-color: #6214a8;
+  width: 100%;
+  z-index: -999;
+  transition: all 0.3s linear;
+}
+
+.categoriesMenuList > li {
+  height: 50px;
 }
 
 .sideMenuBtn:hover {
@@ -210,15 +239,31 @@ a {
   }
 }
 
-@media only screen and (orientation: landscape) and (max-width: 768px) {
-  .sideMenu {
-    top: 80px;
+@media only screen and (orientation: landscape) {
+  .sideMenu > ul {
+    height: 100vh;
   }
 
-  .sideMenu li {
-    height: 18vh;
+  .sideMenuItem {
+    height: 150px;
   }
-  .sideMenuBtn {
-    margin-top: 1.5rem;
+  .btnContainer {
+    top: 100vh;
+  }
+
+  .btnContainerActive {
+    top: calc(100vh + 300px);
+  }
+
+  .categoriesMenu {
+    top: 100vh;
+  }
+
+  .categoriesMenu {
+    height: 1px;
+  }
+
+  .categoriesMenuActive {
+    height: inherit;
   }
 }

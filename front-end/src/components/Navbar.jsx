@@ -69,25 +69,47 @@ function Navbar() {
 
         <div className={cx(styles.sideMenu, { [styles.menuActive]: showMenu })}>
           <ul className={styles.sideMenuList}>
-            <li className={styles.sideMenuItem}>Principal</li>
-            <li className={styles.sideMenuItem}>Meus Eventos</li>
-            <li className={styles.sideMenuItem}>Meu Perfil</li>
-            <li className={styles.sideMenuItem}
-            onClick={e => setCategoriesMenuOpen(!categoriesMenuOpen)}
-            >Categorias <i className={cx("fas fa-chevron-right", styles.categoriesIcon, { [styles.categoriesIconActive]: categoriesMenuOpen })}></i></li>
-            
-            <div className={cx(styles.categoriesMenu, { [styles.categoriesMenuActive]: categoriesMenuOpen })}>
-                <ul className={styles.categoriesMenuList}>
-                    <li className={styles.categoriesMenuItem}>Esportes</li>
-                    <li className={styles.categoriesMenuItem}>Idioma</li>
-                    <li className={styles.categoriesMenuItem}>Música</li>
-                    <li className={styles.categoriesMenuItem}>Auto ajuda</li>
-                    <li className={styles.categoriesMenuItem}>Tecnologia</li>
-                    <li className={styles.categoriesMenuItem}>Arte</li>
-                </ul>
+            <Link to={"/home"}>
+              <li className={styles.sideMenuItem}>Principal</li>
+            </Link>
+            <Link to={"/myevents"}>
+              <li className={styles.sideMenuItem}>Meus Eventos</li>
+            </Link>
+            <Link to={"/myperfil"}>
+              <li className={styles.sideMenuItem}>Meu Perfil</li>
+            </Link>
+            <li
+              className={styles.sideMenuItem}
+              onClick={(e) => setCategoriesMenuOpen(!categoriesMenuOpen)}
+            >
+              Categorias{" "}
+              <i
+                className={cx("fas fa-chevron-right", styles.categoriesIcon, {
+                  [styles.categoriesIconActive]: categoriesMenuOpen,
+                })}
+              ></i>
+            </li>
+
+            <div
+              className={cx(styles.categoriesMenu, {
+                [styles.categoriesMenuActive]: categoriesMenuOpen,
+              })}
+            >
+              <ul className={styles.categoriesMenuList}>
+                <li className={styles.categoriesMenuItem}>Esportes</li>
+                <li className={styles.categoriesMenuItem}>Idioma</li>
+                <li className={styles.categoriesMenuItem}>Música</li>
+                <li className={styles.categoriesMenuItem}>Auto ajuda</li>
+                <li className={styles.categoriesMenuItem}>Tecnologia</li>
+                <li className={styles.categoriesMenuItem}>Arte</li>
+              </ul>
             </div>
-            
-            <div className={cx(styles.btnContainer, { [styles.btnContainerActive]: categoriesMenuOpen })}>
+
+            <div
+              className={cx(styles.btnContainer, {
+                [styles.btnContainerActive]: categoriesMenuOpen,
+              })}
+            >
               <button className={styles.sideMenuBtn}>Sair</button>
             </div>
           </ul>
