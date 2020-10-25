@@ -1,0 +1,68 @@
+.eventContainer{
+    width: 100%;
+    max-width: 800px;
+    height: 150px;
+    margin-bottom: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    font-size: 1.3rem;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.eventContainer:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.eventContainer:hover{
+    cursor: pointer;
+}
+.eventContainer:hover .eventImg{
+    transform: scale(1.2);
+
+}
+
+.eventContainer::after {
+    content: ""; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.336);
+    z-index: -98;
+}
+
+.eventImg{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 70%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -99;
+    transition: all 0.15s linear;
+}
+
+.eventDateContainer{
+    display: flex;
+}
+
+.eventInstructor{
+    margin: 0.7rem 0;
+}
+
+.as{
+    margin: 0 0.5rem;
+}
+
+.eventTitle, .eventInstructor, .eventDateContainer{
+    margin-left: 2rem;
+}
+
