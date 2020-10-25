@@ -1,0 +1,37 @@
+.footer {
+  background: rgba(98, 20, 168, 1);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0px;
+}
+
+.socialMedia {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.socialMediaIcons {
+  display: flex;
+  margin-top: 5px;
+  justify-content: space-between;
+}
+
+.enterprise {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contacts h3 {
+  color: white;
+  text-align: center;
+}

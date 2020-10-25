@@ -1,0 +1,18 @@
+.eventBox {
+  background-color: rgba(195, 146, 222, 0.2);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  padding: 0px 20px;
+  margin: 40px auto;
+  width: 75vw;
+}
+
+.eventBox h3 {
+  color: #6214a8;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  align-self: flex-start;
+}

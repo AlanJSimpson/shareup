@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styles from "./Home.module.css";
 import Navbar from "../components/Navbar";
 import Event from "../components/Event";
+import FooterComponent from "../components/FooterComponent";
 const fakeData = require("./fakeData");
 
 function Home() {
@@ -78,6 +79,7 @@ function Home() {
           )}
         </div>
       </div>
+      <FooterComponent />
     </>
   );
 }

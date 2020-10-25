@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import styles from "./Navbar.module.css";
 import cx from "classnames";
+import { Link } from "react-router-dom";
+
 import HamburguerToX from "./HamburguerToX";
+import styles from "./style/Navbar.module.css";
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
@@ -26,24 +28,33 @@ function Navbar() {
         </div>
 
         <ul className={styles.navMenu}>
-          <li className={styles.navItem}>Principal</li>
-          <li className={styles.navItem}>Meus Eventos</li>
-          <li className={styles.navItem}>Meu Perfil</li>
+          <Link to={"/home"}>
+            <li className={styles.navItem}>Principal</li>
+          </Link>
+          <Link to={"/myevents"}>
+            <li className={styles.navItem}>Meus Eventos</li>
+          </Link>
+          <Link to={"/myperfil"}>
+            <li className={styles.navItem}>Meu Perfil</li>
+          </Link>
           <div
             className={styles.navbarBtn}
-            onClick={(e) => setConfigMenuClicked(!configMenuClicked)}
+            onClick={() => setConfigMenuClicked(!configMenuClicked)}
           >
             <span className={styles.navbarBtnText}>S</span>
           </div>
-          
-            <div className={cx(styles.configMenu, { [styles.configMenuActive]: configMenuClicked })}>
-              <ul className={styles.configMenuList}>
-                <li className={styles.configMenuItem}>item 1</li>
-                <li className={styles.configMenuItem}>item 2</li>
-                <li className={styles.configMenuItem}>item 3</li>
-              </ul>
-            </div>
-          
+
+          <div
+            className={cx(styles.configMenu, {
+              [styles.configMenuActive]: configMenuClicked,
+            })}
+          >
+            <ul className={styles.configMenuList}>
+              <li className={styles.configMenuItem}>item 1</li>
+              <li className={styles.configMenuItem}>item 2</li>
+              <li className={styles.configMenuItem}>item 3</li>
+            </ul>
+          </div>
         </ul>
         <HamburguerToX
           hamLineHeight={5}

@@ -1,5 +1,5 @@
 import React from "react";
-import css from "./inputShareStyle.module.css";
+import css from "./style/inputShareStyle.module.css";
 
 export default function Input({
   type,
