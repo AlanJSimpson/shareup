@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   width: 80%;
-  height: 80%;
+  height: 90%;
 }
 
 .backgroundContent p {
@@ -35,7 +35,18 @@
 }
 
 .logo img {
-  width: 280px;
+  width: 230px;
+}
+
+.registerTitle{
+  margin-bottom: 0.5rem;
+}
+
+
+@media (min-width: 640px) { 
+  .logo img {
+    width: 300px;
+  }
 }
 
 @media (min-width: 960px) {
@@ -89,4 +100,9 @@
     margin-right: 0;
     padding-bottom: 0px;
   }
+
+  .logo img {
+    width: 380px;
+  }
 }
+

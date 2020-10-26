@@ -1,33 +1,56 @@
 .inputStyle {
-  background: rgba(65, 45, 75, 0.5);
-  border: 1px solid rgba(65, 45, 75, 0.5);
-  border-radius: 10px;
+  outline: none;
+  border: none;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
   font-size: 12px;
-  color: #e8ded2;
   margin-bottom: 10px;
-  width: 60vw;
+  width: 50vw;
   height: 30px;
-  padding-left: 40px;
+  background-color: white;
 }
 
 .inputStyle::placeholder {
-  color: #e8ded2;
   font-size: 12px;
+}
+
+.inputContainer{
+  height: 30px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.inputIcon{
+  background-color: white;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  width: 10vw;
+  height: 30px;
 }
 
 @media (min-width: 960px) {
   .inputStyle {
-    background-color: #412d4b;
-    color: #e8ded2;
-    width: 25vw;
+    width: 20vw;
     height: 30px;
   }
-
-  .inputStyle:first-child {
+  
+  .inputContainer:first-child{
     margin-top: 90px;
   }
 
-  .inputStyle::placeholder {
-    color: #e8ded2;
+  .inputIcon{
+    background-color: white;
+    width: 4vw;
   }
+
+  .inputStyle{
+    background-color: white;
+  }
+  
 }
