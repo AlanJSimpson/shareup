@@ -70,19 +70,19 @@ function Navbar() {
         <div className={cx(styles.sideMenu, { [styles.menuActive]: showMenu })}>
           <ul className={styles.sideMenuList}>
             <Link to={"/home"}>
-              <li className={styles.sideMenuItem}>Principal</li>
-            </Link>
+              <li className={styles.sideMenuItem}><i className={cx("fab fa-stripe-s", styles.sideMenuIcons)}></i>Principal</li></Link>
             <Link to={"/myevents"}>
-              <li className={styles.sideMenuItem}>Meus Eventos</li>
+              <li className={styles.sideMenuItem}><i className={cx("fas fa-calendar-alt", styles.sideMenuIcons)}></i>Meus Eventos</li>
             </Link>
             <Link to={"/myperfil"}>
-              <li className={styles.sideMenuItem}>Meu Perfil</li>
+              <li className={styles.sideMenuItem}><i className={cx("fas fa-user", styles.sideMenuIcons)}></i>Meu Perfil</li>
             </Link>
             <li
               className={styles.sideMenuItem}
               onClick={(e) => setCategoriesMenuOpen(!categoriesMenuOpen)}
             >
               Categorias{" "}
+              <i className={cx("fas fa-th", styles.sideMenuIcons)}></i>
               <i
                 className={cx("fas fa-chevron-right", styles.categoriesIcon, {
                   [styles.categoriesIconActive]: categoriesMenuOpen,

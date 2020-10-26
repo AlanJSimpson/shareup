@@ -1,22 +1,19 @@
 .buttonStyle {
-  background-color: #3c2946;
-  border: 1px solid #3c2946;
+  background-color: #DB56A9;
+  border: 1px solid #DB56A9;
   border-radius: 10px;
-  color: #e8ded2;
+  color: white;
   font-size: 1em;
   width: 160px;
   height: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 .buttonStyle:hover {
   cursor: pointer;
 }
 
 @media (min-width: 960px) {
-  .buttonStyle {
-    background-color: #e8ded2;
-    border: 1px solid #e8ded2;
-    color: #3c2946;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+  
 }

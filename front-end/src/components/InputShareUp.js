@@ -10,20 +10,24 @@ export default function Input({
   maxLength,
   minLength,
   style,
+  icon
 }) {
   return (
     <>
-      <input
-        className={css.inputStyle}
-        type={type}
-        placeholder={placeholder}
-        name={name}
-        id={id}
-        style={style}
-        required={required}
-        maxLength={maxLength}
-        minLength={minLength}
-      />
+      <div className={css.inputContainer}>
+        <div className={css.inputIcon}><i className={icon}></i></div>
+        <input
+          className={css.inputStyle}
+          type={type}
+          placeholder={placeholder}
+          name={name}
+          id={id}
+          style={style}
+          required={required}
+          maxLength={maxLength}
+          minLength={minLength}
+        />
+      </div>
     </>
   );
 }

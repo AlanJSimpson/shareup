@@ -65,7 +65,7 @@
 
 .sideMenu {
   position: absolute;
-  top: 79px;
+  top: 80px;
   width: 70%;
   left: -100%;
   transition: all 0.3s ease-out;
@@ -111,17 +111,23 @@
 .btnContainer {
   background-color: #7f25ce;
   position: absolute;
-  height: 65vh;
+  height:calc(65vh - 80px) ;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  top: calc(35vh - 1px);
+  top: calc(35vh);
   transition: all 0.2s linear;
 }
 
 .btnContainerActive {
   top: calc(35vh + 299px);
+}
+
+.sideMenuIcons{
+  font-size: 1.5rem;
+  position: absolute;
+  left: 10%;
 }
 
 .sideMenuBtn {
@@ -222,6 +228,7 @@
 .menuActive {
   left: 0;
 }
+
 
 @media screen and (max-width: 768px) {
   .navMenu {

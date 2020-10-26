@@ -14,8 +14,7 @@ export default function Cadastro() {
           </div>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus at
-            vitae iusto consequatur nulla. Totam incidunt asperiores aperiam
-            quis
+            vitae iusto consequatur nulla. 
           </p>
         </div>
 
@@ -26,56 +25,40 @@ export default function Cadastro() {
           method="POST"
           action="http://localhost:3001/user/register"
         >
-          <h3>Faça o seu cadastro</h3>
+          <h3 className={css.registerTitle}>Faça o seu cadastro</h3>
           <InputShareUp
             type="text"
             placeholder="nome"
             name="nome"
             id="nome"
-            style={{
-              background:
-                'url("https://img.icons8.com/ios-glyphs/30/000000/user--v1.png") no-repeat 5px',
-              backgroundSize: "28px 25px",
-            }}
+            icon="fas fa-user-alt"
           />
           <InputShareUp
             type="email"
             placeholder="email"
             name="email"
             id="email"
-            style={{
-              background:
-                'url("https://img.icons8.com/ios-glyphs/30/000000/new-post.png") no-repeat 7px',
-              backgroundSize: "22px 22px",
-            }}
+            icon="fas fa-envelope"
           />
           <InputShareUp
             type="password"
             placeholder="senha"
             name="registerPassword"
             id="registerPassword"
-            style={{
-              background:
-                'url("https://img.icons8.com/metro/26/000000/password.png") no-repeat 7px 5px ',
-              backgroundSize: "20px 18px",
-            }}
+            icon="fas fa-lock"
           />
           <InputShareUp
             type="password"
             placeholder="Confirmar senha"
             name="confirmPassword"
             id="confirmPassword"
-            style={{
-              background:
-                'url("https://img.icons8.com/metro/26/000000/password.png") no-repeat 7px 5px ',
-              backgroundSize: "20px 18px",
-            }}
+            icon="fas fa-lock"
           />
 
           <ButtonShareUp type="submit">Cadastrar</ButtonShareUp>
 
           <Link to="/user/login">
-            <span>Retornar para a tela de Login</span>
+            <span> &larr; Retornar para Login</span>
           </Link>
         </form>
       </div>

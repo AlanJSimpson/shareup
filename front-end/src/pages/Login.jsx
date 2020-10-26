@@ -11,6 +11,9 @@ export default function Login() {
       <div className={css.backgroundScreen}>
         <div className={css.backgroundContent}>
           <div className={css.apresentation} style={flexColumn}>
+            <div className={css.logo}>
+              <img src="../images/logo.png" alt="logo" />
+            </div>
             <p>Faça seu login e comece a compartilhar conhecimento!</p>
           </div>
           <form
@@ -25,11 +28,7 @@ export default function Login() {
               placeholder="email"
               name="email"
               id="email"
-              style={{
-                background:
-                  'url("https://img.icons8.com/ios-glyphs/30/000000/new-post.png") no-repeat 7px',
-                backgroundSize: "22px 22px",
-              }}
+              icon="fas fa-user-alt"
             />
 
             <InputShareUp
@@ -37,11 +36,7 @@ export default function Login() {
               placeholder="senha"
               name="password"
               id="password"
-              style={{
-                background:
-                  'url("https://img.icons8.com/metro/26/000000/password.png") no-repeat 7px 2px ',
-                backgroundSize: "22px 22px",
-              }}
+              icon="fas fa-lock"
             />
 
             <a id="forgot-password" href="https//www.google.com.br">
