@@ -13,6 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 99;
 }
 
 .logoContainer {
@@ -52,7 +53,6 @@
 .navMenu a {
   height: 100%;
   display: flex;
-
   color: white;
   align-items: center;
   justify-content: center;
@@ -178,12 +178,23 @@
 .configMenu {
   position: absolute;
   width: 150px;
-  top: -50px;
+  top: -53px;
   right: 0px;
   background-color: #6214a8;
   transition: 0.2s all ease-out;
-  z-index: -99;
+  z-index: -2;
 }
+
+.configMenuHide {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  top:0px;
+  right: 0px;
+  background-color: #6214a8;
+  z-index:-1;
+}
+
 .configMenuActive {
   top: 81px;
 }
@@ -192,7 +203,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: 400;
+  font-size: 1.3rem;
+  height: 100%;
 }
+
+.configMenuList a {
+  height: 100%;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  list-style: none;
+}
+.configMenuList > a:hover {
+  cursor: pointer;
+}
+
+
 .configMenuItem {
   margin: 0.5rem 0;
 }

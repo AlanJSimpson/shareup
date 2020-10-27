@@ -47,18 +47,19 @@ function Navbar() {
             <span className={styles.navbarBtnText}>S</span>
           </div>
 
-          <div
-            className={cx(styles.configMenu, {
+          
+        </ul>
+        <div className={cx(styles.configMenu, {
               [styles.configMenuActive]: configMenuClicked,
             })}
           >
             <ul className={styles.configMenuList}>
-              <li className={styles.configMenuItem}>item 1</li>
-              <li className={styles.configMenuItem}>item 2</li>
-              <li className={styles.configMenuItem}>item 3</li>
+              <Link><li className={styles.configMenuItem}>item 1</li></Link>
+              <Link><li className={styles.configMenuItem}>item 2</li></Link>
+              <Link><li className={styles.configMenuItem}>item 3</li></Link>
             </ul>
           </div>
-        </ul>
+          <div className={styles.configMenuHide}></div>
         <HamburguerToX
           hamLineHeight={5}
           hamColor={"white"}

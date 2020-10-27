@@ -8,6 +8,7 @@
     margin-bottom: 3rem;
     display: flex;
     background-color: white;
+    z-index: 1;
 }
 
 .avatarContainer{
@@ -64,6 +65,7 @@
 
 .editIcon:hover{
     transform: scale(1.2) rotate(270deg);
+    cursor: pointer;
 }
 
 .backArrow:hover{
