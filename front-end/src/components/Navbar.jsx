@@ -25,7 +25,9 @@ function Navbar() {
     <nav className={styles.Nav}>
       <div className={styles.navbarContainer}>
         <div className={styles.logoContainer}>
-          <i className={cx("fas fa-home", styles.logoImg)}></i>
+          <Link to={"/home"}>
+            <i className={cx("fas fa-home", styles.logoImg)}></i>
+          </Link>
         </div>
 
         <ul className={styles.navMenu}>
@@ -35,7 +37,7 @@ function Navbar() {
           <Link to={"/myevents"}>
             <li className={styles.navItem}>Meus Eventos</li>
           </Link>
-          <Link to={"/myperfil"}>
+          <Link to={"/profile"}>
             <li className={styles.navItem}>Meu Perfil</li>
           </Link>
           <div
@@ -74,7 +76,7 @@ function Navbar() {
             <Link to={"/myevents"}>
               <li className={styles.sideMenuItem}><i className={cx("fas fa-calendar-alt", styles.sideMenuIcons)}></i>Meus Eventos</li>
             </Link>
-            <Link to={"/myperfil"}>
+            <Link to={"/profile"}>
               <li className={styles.sideMenuItem}><i className={cx("fas fa-user", styles.sideMenuIcons)}></i>Meu Perfil</li>
             </Link>
             <li

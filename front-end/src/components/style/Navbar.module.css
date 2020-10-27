@@ -70,9 +70,11 @@
   left: -100%;
   transition: all 0.3s ease-out;
   z-index: 9999;
+  
 }
 
 .sideMenu > ul {
+  box-shadow: inset 1px 9px 9px -6px rgba(0,0,0,0.50);
   background-color: #7f25ce;
   height: 35vh;
   width: 100%;

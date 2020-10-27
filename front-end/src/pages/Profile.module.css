@@ -1,0 +1,128 @@
+.profile{
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0;
+}
+
+.user{
+    margin-bottom: 3rem;
+    display: flex;
+}
+
+.avatarContainer{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-left: 3rem;
+}
+.avatar{
+    border-radius: 50%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 40%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -99;
+}
+
+.backArrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 1.5rem;
+    color: black;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.767);
+    border-radius: 50%;
+    transition: all linear 0.1s;
+}
+
+.editIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 1.5rem;
+    color: black;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(255, 255, 255, 0.767);
+    border-radius: 50%;
+    transform: rotate(270deg);
+    transition: all linear 0.1s;
+}
+
+.editIcon:hover{
+    transform: scale(1.2) rotate(270deg);
+}
+
+.backArrow:hover{
+    transform: scale(1.2)
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    width: 200px;
+    margin-left: 3rem;
+    color: rgba(98, 20, 168, 1);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.userEmail{
+    font-size: 1rem;
+}
+
+.userEmailIcon{
+    margin-right: 0.5rem;
+}
+
+.userRight{
+    max-width: 800px;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.aboutMe{
+    color: rgba(98, 20, 168, 1);
+    margin-bottom: 1rem;
+}
+
+.description{
+    color: rgba(98, 20, 168, 1);
+}
+
+@media screen and (max-width: 768px) {
+    .avatarContainer{
+        margin: 0rem;
+    }
+    .userInfo{
+        margin: 0rem;
+    }
+    .user{
+        margin-bottom: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+    .aboutMe{
+        margin-top: 1rem; 
+    }
+    .userRight{
+        padding: 20px 30px;
+    }
+}

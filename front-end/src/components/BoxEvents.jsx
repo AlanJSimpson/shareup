@@ -7,6 +7,7 @@ export default function BoxEvents({ content, children }) {
     <div className={css.eventBox}>
       <h3>{children}</h3>
       <Event {...content} />
+      <Event {...content} />
     </div>
   );
 }

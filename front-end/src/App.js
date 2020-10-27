@@ -4,6 +4,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import Home from "./pages/Home";
 import MyEvents from "./pages/MyEvents";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/user/register" exact component={Register} />
         <Route path="/home" exact component={Home} />
         <Route path="/myevents" exact component={MyEvents} />
+        <Route path="/profile" exact component={Profile} />
       </Switch>
     </Router>
   );
