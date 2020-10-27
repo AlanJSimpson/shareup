@@ -1,12 +1,13 @@
 .profile{
     display: flex;
     flex-direction: column;
-    margin: 2rem 0;
 }
 
 .user{
+    padding: 3rem 0;
     margin-bottom: 3rem;
     display: flex;
+    background-color: white;
 }
 
 .avatarContainer{
@@ -14,6 +15,7 @@
     width: 200px;
     height: 200px;
     margin-left: 3rem;
+    z-index: 999;
 }
 .avatar{
     border-radius: 50%;
