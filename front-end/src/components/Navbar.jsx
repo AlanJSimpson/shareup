@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ function Navbar() {
   const [configMenuClicked, setConfigMenuClicked] = useState(false);
   const [categoriesMenuOpen, setCategoriesMenuOpen] = useState(false);
 
-  window.addEventListener("resize", () => {
+  const handleResize = () => {
     if (window.innerWidth >= 768) {
       setShowMenu(false);
       setHamburguerIsClicked(false);
@@ -19,7 +19,15 @@ function Navbar() {
     if (window.innerWidth <= 768) {
       setConfigMenuClicked(false);
     }
-  });
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [])
+
+
+
 
   return (
     <nav className={styles.Nav}>
@@ -47,19 +55,19 @@ function Navbar() {
             <span className={styles.navbarBtnText}>S</span>
           </div>
 
-          
+
         </ul>
         <div className={cx(styles.configMenu, {
-              [styles.configMenuActive]: configMenuClicked,
-            })}
-          >
-            <ul className={styles.configMenuList}>
-              <Link><li className={styles.configMenuItem}>item 1</li></Link>
-              <Link><li className={styles.configMenuItem}>item 2</li></Link>
-              <Link><li className={styles.configMenuItem}>item 3</li></Link>
-            </ul>
-          </div>
-          <div className={styles.configMenuHide}></div>
+          [styles.configMenuActive]: configMenuClicked,
+        })}
+        >
+          <ul className={styles.configMenuList}>
+            <Link to='/'><li className={styles.configMenuItem}>item 1</li></Link>
+            <Link to='/'><li className={styles.configMenuItem}>item 2</li></Link>
+            <Link to='/'><li className={styles.configMenuItem}>item 3</li></Link>
+          </ul>
+        </div>
+        <div className={styles.configMenuHide}></div>
         <HamburguerToX
           hamLineHeight={5}
           hamColor={"white"}

@@ -1,0 +1,132 @@
+.EditProfile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+    color: #6214A8;
+}
+
+.avatarContainer{
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+.avatar{
+    border-radius: 50%;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 40%;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: -99;
+}
+
+.backArrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 1.5rem;
+    color: black;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.767);
+    border-radius: 50%;
+    transition: all linear 0.1s;
+}
+
+.camera{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    font-size: 1.5rem;
+    color: black;
+    bottom: 0px;
+    right: 0px;
+    background-color: rgba(255, 255, 255, 0.767);
+    border-radius: 50%;
+    transition: all linear 0.1s;
+}
+
+.camera:hover{
+    cursor: pointer;
+    transform: scale(1.2)
+}
+
+.backArrow:hover{
+    transform: scale(1.2)
+}
+
+.infoTitle{
+    margin: 3rem 0;
+}
+
+.formContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.formContainer input[type="text"], input[type="email"]{
+    margin-bottom: 2rem;
+    height: 40px;
+}
+
+.formContainer input, textarea{
+    background-color:rgba(195, 146, 222, 0.2);
+    padding-left: 15px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+textarea{
+    padding-top: 15px;
+}
+.boxEventsContainer{
+    position: relative;
+}
+.plusIcon{
+    position: absolute;
+    bottom: 15px;
+    right: calc(50% - 20px);
+    font-size: 3rem;
+    transition: all 0.1s linear;
+    
+}
+.plusIcon:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.saveBtn{
+    border: none;
+    margin-top: 1rem;
+    width: 250px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: rgba(98, 20, 168, 1);
+    color: white;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transition: all 0.1s linear;
+}
+
+.saveBtn:hover{
+    cursor: pointer;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+@media screen and (max-width: 500px) {
+    .formContainer{
+        width: 300px;
+    }
+    
+}

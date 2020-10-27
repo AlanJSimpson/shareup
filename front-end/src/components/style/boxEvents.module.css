@@ -8,6 +8,8 @@
   padding: 0px 20px;
   margin: 40px auto;
   width: 65vw;
+  min-width: 300px;
+  max-width: 840px;
 }
 
 .eventBox h3 {

@@ -17,13 +17,13 @@ export default function Profile() {
                 <div className={styles.user}>
                     <div className={styles.userLeft}>
                         <div className={styles.avatarContainer}>
-                            <Link to='/home'><span className={styles.backArrow}><i class="fas fa-arrow-left"></i></span></Link>
+                            <Link to='/home'><span className={styles.backArrow}><i className="fas fa-arrow-left"></i></span></Link>
                             <div style={{ backgroundImage: `url(${data.photo})` }} className={styles.avatar}></div>
-                            <span className={styles.editIcon}><i class="fas fa-pen"></i></span>
+                            <Link to='/profile/edit'><span className={styles.editIcon}><i className="fas fa-pen"></i></span></Link>
                         </div>
                         <div className={styles.userInfo}>
                             <span>{data.name}</span>
-                            <span className={styles.userEmail}><i class={cx("far fa-envelope", styles.userEmailIcon)}></i>{data.email}</span>
+                            <span className={styles.userEmail}><i className={cx("far fa-envelope", styles.userEmailIcon)}></i>{data.email}</span>
                         </div>
                     </div>
                     <div className={styles.userRight}>
