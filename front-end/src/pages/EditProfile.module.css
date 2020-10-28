@@ -73,7 +73,7 @@
     flex-direction: column;
 }
 
-.formContainer input[type="text"], input[type="email"]{
+.formContainer input[type="text"], .formContainer input[type="email"]{
     margin-bottom: 2rem;
     height: 40px;
 }
