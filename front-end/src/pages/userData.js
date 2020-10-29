@@ -10,6 +10,6 @@ module.exports = [
     email: "Joaquina.pereira@gmail.com",
     photo: "images/userSelfie.jpg",
     comment:
-      "Que evento daora!!! com certeza eu irei participar, mesmo que minha foto esteja zuada",
+      "Que evento daora!!! com certeza eu irei participar",
   },
 ];

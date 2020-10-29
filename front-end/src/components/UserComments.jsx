@@ -17,8 +17,9 @@ export default function UserComments({ name, photo, comment, rows, cols }) {
             cols={cols}
             disabled="disabled"
             placeholder="Escreva algo..."
+            defaultValue={comment}
           >
-            {comment}
+            
           </textarea>
         </div>
       </div>

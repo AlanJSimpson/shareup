@@ -61,7 +61,7 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width:  580px) {
   .comments textarea {
     width: 200px;
     height: 80px;
