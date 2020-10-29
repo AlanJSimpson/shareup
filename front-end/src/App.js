@@ -5,7 +5,8 @@ import Register from "./pages/Register.jsx";
 import Home from "./pages/Home";
 import MyEvents from "./pages/MyEvents";
 import Profile from "./pages/Profile";
-import EditProfile from './pages/EditProfile';
+import EditProfile from "./pages/EditProfile";
+import EventPage from "./pages/EventPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/myevents" exact component={MyEvents} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/profile/edit" exact component={EditProfile} />
+        <Route path="/event" exact component={EventPage} />
       </Switch>
     </Router>
   );

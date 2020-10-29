@@ -1,0 +1,48 @@
+.userComment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.userIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 10vw;
+  margin-right: 15px;
+}
+
+.userIdentity img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.comments textarea {
+  resize: none;
+}
+
+@media (max-width: 760px) {
+  .userIdentity {
+    font-size: 0.8em;
+  }
+
+  .userIdentity img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .comments textarea {
+    width: 330px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .comments textarea {
+    width: 200px;
+    height: 80px;
+    font-size: 0.8em;
+    margin-left: 10px;
+  }
+}

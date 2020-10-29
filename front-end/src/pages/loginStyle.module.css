@@ -24,7 +24,7 @@
   margin: 0 15px;
   margin-bottom: 40px;
   font-size: 0.9em;
-  width: 300px;
+  width: 220px;
 }
 
 .backgroundContent .formStyle a {
@@ -35,17 +35,16 @@
 }
 
 .logo img {
-  width: 230px;
+  width: 170px;
 }
 
-.registerTitle{
+.registerTitle {
   margin-bottom: 0.5rem;
 }
 
-
-@media (min-width: 640px) { 
+@media (min-width: 640px) {
   .logo img {
-    width: 300px;
+    width: 210px;
   }
 }
 
@@ -102,7 +101,6 @@
   }
 
   .logo img {
-    width: 380px;
+    width: 260px;
   }
 }
-
