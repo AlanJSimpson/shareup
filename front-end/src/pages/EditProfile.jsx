@@ -22,7 +22,7 @@ export default function EditProfile() {
             <div className={styles.EditProfile}>
                 <div className={styles.avatarContainer}>
                     <Link to='/profile'><span className={styles.backArrow}><i className="fas fa-arrow-left"></i></span></Link>
-                    <div style={{ backgroundImage: `url(/${data.photo})` }} className={styles.avatar}></div>
+                    <div style={{ backgroundImage: `url(../images/joao.jpeg` }} className={styles.avatar}></div>
                     <Link to='/profile/edit'><span className={styles.camera}><i class="fas fa-camera"></i></span></Link>
                 </div>
                 <h3 className={styles.infoTitle}>Informações pessoais:</h3>

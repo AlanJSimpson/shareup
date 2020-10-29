@@ -18,7 +18,7 @@ export default function Profile() {
                     <div className={styles.userLeft}>
                         <div className={styles.avatarContainer}>
                             <Link to='/home'><span className={styles.backArrow}><i className="fas fa-arrow-left"></i></span></Link>
-                            <div style={{ backgroundImage: `url(${data.photo})` }} className={styles.avatar}></div>
+                            <div style={{ backgroundImage: `url(../images/joao.jpeg)` }} className={styles.avatar}></div>
                             <Link to='/profile/edit'><span className={styles.editIcon}><i className="fas fa-pen"></i></span></Link>
                         </div>
                         <div className={styles.userInfo}>
