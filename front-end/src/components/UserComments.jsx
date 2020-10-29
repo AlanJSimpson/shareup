@@ -5,8 +5,10 @@ export default function UserComments({ name, photo, comment, rows, cols }) {
   return (
     <>
       <div className={css.userComment}>
-        <div className={css.userIdentity}>
-          <img src={photo} alt="Moça bonita" />
+        <div className={css.avatarInfo}>
+          <div className={css.avatarContainer}>
+            <div style={{ backgroundImage: `url(../${photo}` }} className={css.avatar}></div>
+          </div>
           <span>{name}</span>
         </div>
         <div className={css.comments}>
@@ -15,11 +17,13 @@ export default function UserComments({ name, photo, comment, rows, cols }) {
             cols={cols}
             disabled="disabled"
             placeholder="Escreva algo..."
+            defaultValue={comment}
           >
-            {comment}
+            
           </textarea>
         </div>
       </div>
     </>
   );
 }
+
