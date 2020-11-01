@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const DoneEvent = sequelize.define(
-    "done_event",
+    "DoneEvent",
     {
       id_done_event: {
         type: DataTypes.INTEGER,
@@ -8,8 +8,15 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
       },
       done: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.BOOLEAN,
         allowNull: false,
+      },
+
+      fk_profile_user: {
+        type: DataTypes.INTEGER,
+      },
+      fk_events: {
+        type: DataTypes.INTEGER,
       },
     },
     {
@@ -17,6 +24,17 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  DoneEvent.sync({ force: true });
+
+  DoneEvent.associate = (models) => {
+    DoneEvent.belongsTo(models.Event, {
+      as: "eventsDone",
+      foreignKey: "fk_events",
+    });
+    DoneEvent.belongsTo(models.ProfileUser, {
+      as: "userDone",
+      foreignKey: "fk_profile_user",
+    });
+  };
+
   return DoneEvent;
 };

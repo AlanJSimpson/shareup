@@ -1,4 +1,13 @@
-const { sequelize, registered_user } = require("../models");
+const {
+  sequelize,
+  RegisteredUser,
+  ProfileUser,
+  Image,
+  Comment,
+  Event,
+  Adress,
+  DoneEvent,
+} = require("../models");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 
@@ -8,7 +17,7 @@ module.exports = {
     if (registerPassword === confirmPassword) {
       try {
         let hashPass = await bcrypt.hash(registerPassword, 10);
-        await registered_user.create({
+        await RegisteredUser.create({
           nome,
           email,
           senha: hashPass,
@@ -23,9 +32,60 @@ module.exports = {
       res.send("senhas não conferem");
     }
   },
-  logInUser: passport.authenticate("local", {
+
+  findAllUsers: async (req, res) => {
+    const allUser = await RegisteredUser.findAll({ include: "profileUser" });
+    console.log(allUser);
+    res.send(allUser);
+  },
+
+  testNpN: async (req, res) => {
+    const test = await ProfileUser.findAll({
+      include: {
+        model: Event,
+        as: "subscribed",
+      },
+    });
+    res.send(test);
+  },
+
+  picImage: async (req, res) => {
+    const allImages = await Image.findAll({
+      include: ["userImage", "eventImage"],
+    });
+    res.send(allImages);
+  },
+
+  userComment: async (req, res) => {
+    const userComment = await Comment.findAll({
+      include: ["userComment", "eventComment"],
+    });
+    res.send(userComment);
+  },
+
+  events: async (req, res) => {
+    const event = await Event.findAll();
+    res.send(event);
+  },
+
+  adress: async (req, res) => {
+    const adress = await Adress.findAll({ include: "eventAdress" });
+    res.send(adress);
+  },
+
+  eventDone: async (req, res) => {
+    const eventDone = await DoneEvent.findAll({
+      include: ["eventsDone", "userDone"],
+    });
+    res.send(eventDone);
+  },
+
+  /* imageEvent: async (req, res) => {
+    const imageEvent = await Image.find;
+  }, */
+  /*  logInUser: passport.authenticate("local", {
     successRedirect: "http://localhost:3000/home",
     failureRedirect: "http://localhost:3000/user/register",
     failureFlash: true,
-  }),
+  }) */
 };

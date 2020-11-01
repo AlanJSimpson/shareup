@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Image = sequelize.define(
-    "image",
+    "Image",
     {
       id_images: {
         type: DataTypes.INTEGER,
@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
+      fk_profile_user: {
+        type: DataTypes.INTEGER,
+      },
+      fk_events: {
+        type: DataTypes.INTEGER,
+      },
     },
     {
       tableName: "images",
@@ -22,6 +28,16 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Image.sync({ force: true });
+  Image.associate = (models) => {
+    Image.belongsTo(models.ProfileUser, {
+      as: "userImage",
+      foreignKey: "fk_profile_user",
+    });
+    Image.belongsTo(models.Event, {
+      as: "eventImage",
+      foreignKey: "fk_events",
+    });
+  };
+
   return Image;
 };

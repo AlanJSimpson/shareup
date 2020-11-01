@@ -1,19 +1,27 @@
 module.exports = (sequelize, DataTypes) => {
   const SubscribedUser = sequelize.define(
-    "subscribed_user",
+    "SubscribedUser",
     {
       id_subscribed_user: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
       },
+
+      fk_profile_user: {
+        type: DataTypes.INTEGER,
+      },
+
+      fk_events: {
+        type: DataTypes.INTEGER,
+      },
     },
+
     {
       tableName: "subscribed_users",
       timestamps: false,
     }
   );
 
-  SubscribedUser.sync({ force: true });
   return SubscribedUser;
 };

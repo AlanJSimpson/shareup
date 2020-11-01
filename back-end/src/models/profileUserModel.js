@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const ProfileUser = sequelize.define(
-    "profile_user",
+    "ProfileUser",
     {
       id_profile_user: {
         type: DataTypes.INTEGER,
@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },
+      fk_registered_user: {
+        type: DataTypes.INTEGER,
+      },
     },
     {
       timestamps: false,
@@ -26,6 +29,33 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  ProfileUser.sync({ force: true });
+  ProfileUser.associate = (models) => {
+    ProfileUser.belongsTo(models.RegisteredUser, {
+      foreignKey: "fk_registered_user",
+      as: "registeredUser",
+    });
+    ProfileUser.hasOne(models.Image, {
+      as: "avatar",
+      foreignKey: "fk_profile_user",
+    });
+    ProfileUser.hasMany(models.Comment, {
+      as: "comments",
+      foreignKey: "fk_profile_user",
+    });
+    ProfileUser.hasMany(models.Event, {
+      as: "events",
+      foreignKey: "fk_profile_user",
+    });
+    ProfileUser.hasMany(models.DoneEvent, {
+      as: "eventDone",
+      foreignKey: "fk_profile_user",
+    });
+    ProfileUser.belongsToMany(models.Event, {
+      through: models.SubscribedUser,
+      as: "subscribed",
+      foreignKey: "fk_profile_user",
+    });
+  };
+
   return ProfileUser;
 };

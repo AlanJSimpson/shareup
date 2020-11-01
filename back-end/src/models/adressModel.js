@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
   const Adress = sequelize.define(
-    "adress",
+    "Adress",
     {
       id_adress: {
         type: DataTypes.INTEGER,
@@ -31,10 +31,19 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
+      fk_events: {
+        type: DataTypes.INTEGER,
+      },
     },
     { timestamps: false, tableName: "adress" }
   );
 
-  Adress.sync({ force: true });
+  Adress.associate = (models) => {
+    Adress.belongsTo(models.Event, {
+      as: "eventAdress",
+      foreignKey: "fk_events",
+    });
+  };
+
   return Adress;
 };
