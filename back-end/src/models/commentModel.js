@@ -11,12 +11,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: false,
       },
-      fk_events: {
-        type: DataTypes.INTEGER,
-      },
-      fk_profile_user: {
-        type: DataTypes.INTEGER,
-      },
     },
     {
       tableName: "comments",

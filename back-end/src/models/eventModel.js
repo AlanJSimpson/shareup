@@ -25,9 +25,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      fk_profile_user: {
-        type: DataTypes.INTEGER,
-      },
     },
     {
       tableName: "events",

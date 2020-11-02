@@ -11,13 +11,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         allowNull: false,
       },
-
-      fk_profile_user: {
-        type: DataTypes.INTEGER,
-      },
-      fk_events: {
-        type: DataTypes.INTEGER,
-      },
     },
     {
       tableName: "done_events",
