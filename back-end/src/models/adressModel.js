@@ -31,9 +31,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
       },
-      fk_events: {
-        type: DataTypes.INTEGER,
-      },
     },
     { timestamps: false, tableName: "adress" }
   );

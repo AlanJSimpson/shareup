@@ -15,12 +15,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: true,
       },
-      fk_profile_user: {
-        type: DataTypes.INTEGER,
-      },
-      fk_events: {
-        type: DataTypes.INTEGER,
-      },
     },
     {
       tableName: "images",

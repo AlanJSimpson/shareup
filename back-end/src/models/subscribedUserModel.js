@@ -7,14 +7,6 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-
-      fk_profile_user: {
-        type: DataTypes.INTEGER,
-      },
-
-      fk_events: {
-        type: DataTypes.INTEGER,
-      },
     },
 
     {

@@ -19,9 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },
-      fk_registered_user: {
-        type: DataTypes.INTEGER,
-      },
     },
     {
       timestamps: false,
