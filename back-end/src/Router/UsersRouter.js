@@ -8,7 +8,7 @@ router.get("/userinfo", UserController.userInfo);
 router.get("/", UserController.findAllUsers);
 router.get("/images", UserController.picImage);
 router.get("/comments", UserController.userComment);
-router.get("/events", UserController.events);
+router.get("/event", UserController.events);
 router.get("/adress", UserController.adress);
 router.get("/eventdone", UserController.eventDone);
 router.get("/teste", UserController.testNpN);

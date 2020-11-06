@@ -6,6 +6,7 @@ const passport = require("passport");
 const initializePassport = require("./passport/passport-config");
 const db = require("./models/index");
 const { RegisteredUser } = require("./models");
+const cors = require('cors')
 
 initializePassport(
   passport,
@@ -17,6 +18,7 @@ db.testConnection();
 
 const app = express();
 
+app.use(cors())
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

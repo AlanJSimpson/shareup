@@ -64,8 +64,9 @@ module.exports = {
   },
 
   events: async (req, res) => {
-    const event = await Event.findAll();
-    res.send(event);
+    // const event = await Event.findAll();
+    console.log('event>>>>', req.session)
+    res.send(req.session.passport);
   },
 
   adress: async (req, res) => {
@@ -94,6 +95,9 @@ module.exports = {
     // console.log('userInfo >>>>', req.session.passport.user)
     console.log('userInfo >>>>', req.session)
     console.log('checkAuthenticated >>>', req.isAuthenticated())
-    res.send('user info route')
+    const nome = req.session
+
+    res.send(nome)
+
   }
 };
