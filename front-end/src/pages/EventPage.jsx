@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/FooterComponent";
 import Event from "../components/Event";
@@ -7,9 +7,23 @@ import css from "./EventPage.module.css";
 import UserComments from "../components/UserComments";
 import userData from "./userData";
 import ButtonShareUp from "../components/ButtonShareUp";
+import { sessionInfo } from '../Api/usersAPI'
+import axios from 'axios'
 
 export default function EventPage() {
   const { name, photo, comment } = userData[1];
+  const [userInfo, setUserInfo] = useState()
+  useEffect(() => {
+
+    const fetcher = async () => {
+
+      // const result = await axios.get('http://localhost:3001/user/event')
+      const result = await sessionInfo()
+      console.log('eventPage >>>>>> ',result.data)
+    }
+    fetcher()
+  }, [])
+
   return (
     <div>
       <Navbar />
