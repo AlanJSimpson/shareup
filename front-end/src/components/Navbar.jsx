@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import HamburguerToX from "./HamburguerToX";
 import styles from "./style/Navbar.module.css";
+import getPassport from "../Api/getPassport";
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const [hamburguerIsClicked, setHamburguerIsClicked] = useState(false);
   const [configMenuClicked, setConfigMenuClicked] = useState(false);
   const [categoriesMenuOpen, setCategoriesMenuOpen] = useState(false);
+  const [userName, setUserName] = useState("");
 
   const handleResize = () => {
     if (window.innerWidth >= 768) {
@@ -19,15 +22,17 @@ function Navbar() {
     if (window.innerWidth <= 768) {
       setConfigMenuClicked(false);
     }
-  }
+  };
 
   useEffect(() => {
+    const asyncResult = async () => {
+      const result = await getPassport();
+      setUserName(result.data.passport.user.nome);
+    };
+    asyncResult();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [])
-
-
-
+  }, []);
 
   return (
     <nav className={styles.Nav}>
@@ -36,6 +41,7 @@ function Navbar() {
           <Link to={"/home"}>
             <i className={cx("fas fa-home", styles.logoImg)}></i>
           </Link>
+          <span>Olá, {userName}</span>
         </div>
 
         <ul className={styles.navMenu}>
@@ -54,17 +60,22 @@ function Navbar() {
           >
             <span className={styles.navbarBtnText}>S</span>
           </div>
-
-
         </ul>
-        <div className={cx(styles.configMenu, {
-          [styles.configMenuActive]: configMenuClicked,
-        })}
+        <div
+          className={cx(styles.configMenu, {
+            [styles.configMenuActive]: configMenuClicked,
+          })}
         >
           <ul className={styles.configMenuList}>
-            <Link to='/'><li className={styles.configMenuItem}>item 1</li></Link>
-            <Link to='/'><li className={styles.configMenuItem}>item 2</li></Link>
-            <Link to='/'><li className={styles.configMenuItem}>item 3</li></Link>
+            <Link to="/">
+              <li className={styles.configMenuItem}>item 1</li>
+            </Link>
+            <Link to="/">
+              <li className={styles.configMenuItem}>item 2</li>
+            </Link>
+            <Link to="/">
+              <li className={styles.configMenuItem}>item 3</li>
+            </Link>
           </ul>
         </div>
         <div className={styles.configMenuHide}></div>
@@ -81,12 +92,24 @@ function Navbar() {
         <div className={cx(styles.sideMenu, { [styles.menuActive]: showMenu })}>
           <ul className={styles.sideMenuList}>
             <Link to={"/home"}>
-              <li className={styles.sideMenuItem}><i className={cx("fab fa-stripe-s", styles.sideMenuIcons)}></i>Principal</li></Link>
+              <li className={styles.sideMenuItem}>
+                <i className={cx("fab fa-stripe-s", styles.sideMenuIcons)}></i>
+                Principal
+              </li>
+            </Link>
             <Link to={"/myevents"}>
-              <li className={styles.sideMenuItem}><i className={cx("fas fa-calendar-alt", styles.sideMenuIcons)}></i>Meus Eventos</li>
+              <li className={styles.sideMenuItem}>
+                <i
+                  className={cx("fas fa-calendar-alt", styles.sideMenuIcons)}
+                ></i>
+                Meus Eventos
+              </li>
             </Link>
             <Link to={"/profile"}>
-              <li className={styles.sideMenuItem}><i className={cx("fas fa-user", styles.sideMenuIcons)}></i>Meu Perfil</li>
+              <li className={styles.sideMenuItem}>
+                <i className={cx("fas fa-user", styles.sideMenuIcons)}></i>Meu
+                Perfil
+              </li>
             </Link>
             <li
               className={styles.sideMenuItem}

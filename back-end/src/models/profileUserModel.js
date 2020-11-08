@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       sexo: {
         type: DataTypes.ENUM("Masculino", "Feminino", "Não Binário"),
-        allowNull: false,
+        allowNull: true,
       },
       cel: {
         type: DataTypes.STRING,

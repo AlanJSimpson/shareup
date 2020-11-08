@@ -65,7 +65,7 @@ module.exports = {
 
   events: async (req, res) => {
     // const event = await Event.findAll();
-    console.log('event>>>>', req.session)
+    console.log("event>>>>", req.session);
     res.send(req.session.passport);
   },
 
@@ -84,20 +84,4 @@ module.exports = {
   /* imageEvent: async (req, res) => {
     const imageEvent = await Image.find;
   }, */
-  logInUser: passport.authenticate("local", {
-    successRedirect: "http://localhost:3000/home",
-    failureRedirect: "http://localhost:3000/user/register",
-    failureFlash: true,
-  }),
-  
-  userInfo: (req,res) =>{
-    
-    // console.log('userInfo >>>>', req.session.passport.user)
-    console.log('userInfo >>>>', req.session)
-    console.log('checkAuthenticated >>>', req.isAuthenticated())
-    const nome = req.session
-
-    res.send(nome)
-
-  }
 };

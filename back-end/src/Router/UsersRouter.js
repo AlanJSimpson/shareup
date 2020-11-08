@@ -1,10 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const UserController = require("../controllers/RegisteredUserController");
+const AccessController = require("../controllers/AccessController");
+const ProfileController = require("../controllers/ProfileUserController");
+const UserController = require("../controllers/testes");
 
-router.post("/register", UserController.saveNewUser);
-router.post("/login", UserController.logInUser);
-router.get("/userinfo", UserController.userInfo);
+router.post("/register", AccessController.saveNewUser);
+router.post("/login", AccessController.userLogin);
+router.get("/userinfo", AccessController.userInfo);
+router.patch("/profile/edit", ProfileController.updateProfileUser);
 router.get("/", UserController.findAllUsers);
 router.get("/images", UserController.picImage);
 router.get("/comments", UserController.userComment);

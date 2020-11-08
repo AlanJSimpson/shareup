@@ -21,6 +21,14 @@
   display: flex;
   font-size: 30px;
 }
+
+.logoContainer span {
+  color: white;
+  margin-left: 15px;
+  margin-top: 6px;
+  text-align: center;
+}
+
 .logoContainer:hover {
   cursor: pointer;
 }
@@ -70,11 +78,10 @@
   left: -100%;
   transition: all 0.3s ease-out;
   z-index: 9999;
-  
 }
 
 .sideMenu > ul {
-  box-shadow: inset 1px 9px 9px -6px rgba(0,0,0,0.50);
+  box-shadow: inset 1px 9px 9px -6px rgba(0, 0, 0, 0.5);
   background-color: #7f25ce;
   height: 35vh;
   width: 100%;
@@ -113,7 +120,7 @@
 .btnContainer {
   background-color: #7f25ce;
   position: absolute;
-  height:calc(65vh - 80px) ;
+  height: calc(65vh - 80px);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -126,7 +133,7 @@
   top: calc(35vh + 299px);
 }
 
-.sideMenuIcons{
+.sideMenuIcons {
   font-size: 1.5rem;
   position: absolute;
   left: 10%;
@@ -156,7 +163,8 @@
 }
 
 .categoriesMenu {
-  box-shadow: inset 0 0 20px 0px rgba(0,0,0,0.50), 0 15px 12px rgba(0,0,0,0.22);
+  box-shadow: inset 0 0 20px 0px rgba(0, 0, 0, 0.5),
+    0 15px 12px rgba(0, 0, 0, 0.22);
   top: 35vh;
   position: absolute;
   background-color: #6214a8;
@@ -189,10 +197,10 @@
   position: absolute;
   width: 150px;
   height: 80px;
-  top:0px;
+  top: 0px;
   right: 0px;
   background-color: #6214a8;
-  z-index:-1;
+  z-index: -1;
 }
 
 .configMenuActive {
@@ -220,7 +228,6 @@
 .configMenuList > a:hover {
   cursor: pointer;
 }
-
 
 .configMenuItem {
   margin: 0.5rem 0;
@@ -260,7 +267,6 @@
   left: 0;
 }
 
-
 @media screen and (max-width: 768px) {
   .navMenu {
     display: none;
@@ -295,7 +301,6 @@
   }
   .btnContainer {
     top: calc(100vh - 1px);
-
   }
 
   .btnContainerActive {
