@@ -9,9 +9,10 @@ const userLogin = passport.authenticate("local", {
 });
 
 const userInfo = (req, res) => {
-  const nome = req.session;
-  res.send(nome);
+  const user = req.session;
+  res.send(user);
 };
+
 
 const saveNewUser = async (req, res) => {
   let { nome, email, registerPassword, confirmPassword } = req.body;
