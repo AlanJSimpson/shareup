@@ -1,9 +1,8 @@
-const { ProfileUser } = require("../models");
+const { ProfileUser, RegisteredUser } = require("../models");
 
 const updateProfileUser = async (req, res) => {
   const { nome, sexo, about, cel } = req.body;
   const {id_registered_user} = req.session.passport.user
-
 
   try {
     const updateProfile = await ProfileUser.update(
@@ -21,6 +20,18 @@ const updateProfileUser = async (req, res) => {
     res.status(200).send("deu certo");
   } catch (error) {
     res.send(error.message);
+  }
+
+  try {
+    await RegisteredUser.update({
+      nome
+    },{
+      where: {
+        id_registered_user
+      }
+    })
+  } catch (error) {
+    console.log(error)
   }
 };
 
