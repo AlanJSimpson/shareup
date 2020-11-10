@@ -92,6 +92,7 @@ export default function EditProfile() {
         <h3 className={styles.infoTitle}>Informações pessoais:</h3>
 
         <form className={styles.formContainer} action="">
+          <label htmlFor="nameUser">Nome:</label>
           <input
             placeholder="Nome"
             type="text"
@@ -99,6 +100,7 @@ export default function EditProfile() {
             id="nameUser"
             onChange={setDataChange}
           />
+          <label htmlFor="celUser">Cel:</label>
           <input
             placeholder="Cel"
             type="text"
@@ -106,6 +108,7 @@ export default function EditProfile() {
             value={userCel}
             onChange={setDataChange}
           />
+          <label htmlFor="userSex">Sexo:</label>
           <select
             name="userSex"
             id="userSex"
@@ -119,6 +122,7 @@ export default function EditProfile() {
             <option value="Feminino">Feminino</option>
             <option value="Não binário">Não Binário</option>
           </select>
+          <label htmlFor="aboutUser">Sobre mim:</label>
           <textarea
             rows="7"
             cols="50"

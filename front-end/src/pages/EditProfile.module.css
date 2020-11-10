@@ -74,8 +74,9 @@
 }
 
 .formContainer input[type="text"], .formContainer input[type="email"]{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     height: 40px;
+    outline: none;
 }
 
 .formContainer input, textarea{
@@ -88,6 +89,7 @@
 
 textarea{
     padding-top: 15px;
+    outline: none;
 }
 .boxEventsContainer{
     position: relative;
@@ -104,6 +106,22 @@ textarea{
     transform: scale(1.1);
     cursor: pointer;
 }
+
+.formContainer label{
+    margin-bottom: 10px;
+}
+
+.formContainer select{
+    padding-left: 15px;
+    height: 40px;
+    outline: none;
+    background-color: rgba(195, 146, 222, 0.2);
+    border: none;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+
 
 .saveBtn{
     border: none;
