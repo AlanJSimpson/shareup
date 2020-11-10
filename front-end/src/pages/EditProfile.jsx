@@ -8,14 +8,14 @@ import styles from "./EditProfile.module.css";
 import BoxEvents from "../components/BoxEvents";
 import data from "./userData";
 import getPassport from "../Api/getPassport";
-import { updateProfile } from "../Api/profileUserApi";
+import { updateProfile, getProfile } from "../Api/profileUserApi";
 
 const { title, instructor, date, time, image } = {
   id: 1,
   title: "Piano",
   instructor: "Miguel",
   date: "25/11",
-  time: "20:00",
+  time: "20:00", 
   image: "../images/piano.png",
 };
 
@@ -57,9 +57,13 @@ export default function EditProfile() {
 
   useEffect(() => {
     const asyncResult = async () => {
-      const result = await getPassport();
-
-      setUserName(result.data.passport.user.nome);
+      const passportResult = await getPassport();
+      const profileResult = await getProfile()
+      const {sexo, cel, about} = profileResult.data;
+      setUserCel(cel)
+      setAboutMe(about)
+      setUserSex(sexo)
+      setUserName(passportResult.data.passport.user.nome);
     };
 
     asyncResult();

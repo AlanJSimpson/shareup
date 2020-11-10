@@ -2,7 +2,8 @@ const { ProfileUser } = require("../models");
 
 const updateProfileUser = async (req, res) => {
   const { nome, sexo, about, cel } = req.body;
-  console.log(req.header);
+  const {id_registered_user} = req.session.passport.user
+
 
   try {
     const updateProfile = await ProfileUser.update(
@@ -13,7 +14,7 @@ const updateProfileUser = async (req, res) => {
       },
       {
         where: {
-          fk_registered_user: 21,
+          fk_registered_user: id_registered_user,
         },
       }
     );
@@ -23,4 +24,12 @@ const updateProfileUser = async (req, res) => {
   }
 };
 
-module.exports = { updateProfileUser };
+const getProfile = async (req, res) => {
+  const id = req.session.passport.user.id_registered_user;
+
+  const result = await ProfileUser.findByPk(id);
+  console.log(result) 
+  res.send(result)
+}
+
+module.exports = { updateProfileUser, getProfile };
