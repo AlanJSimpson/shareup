@@ -39,8 +39,13 @@ const getProfile = async (req, res) => {
   const id = req.session.passport.user.id_registered_user;
 
   const result = await ProfileUser.findByPk(id);
-  console.log(result) 
+  res.send(result)
+};
+
+const getRegisteredUser = async (req, res) => {
+  const id = req.session.passport.user.id_registered_user;
+  const result = await RegisteredUser.findByPk(id);
   res.send(result)
 }
 
-module.exports = { updateProfileUser, getProfile };
+module.exports = { updateProfileUser, getProfile, getRegisteredUser };

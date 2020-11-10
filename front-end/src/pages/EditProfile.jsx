@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import cx from "classnames";
 
+import { ContextConsumer } from '../context/ContextProvider'
 import Navbar from "../components/Navbar";
 import Footer from "../components/FooterComponent";
 import styles from "./EditProfile.module.css";
@@ -20,6 +21,8 @@ const { title, instructor, date, time, image } = {
 };
 
 export default function EditProfile() {
+  const {userNameContext, setUserNameContext} = useContext(ContextConsumer)
+
   const [userName, setUserName] = useState("");
   const [userCel, setUserCel] = useState("");
   const [aboutMe, setAboutMe] = useState("");
@@ -52,6 +55,7 @@ export default function EditProfile() {
       sexo: userSex || null,
     });
     console.log(result);
+    setUserNameContext(userName)
     return result;
   };
 

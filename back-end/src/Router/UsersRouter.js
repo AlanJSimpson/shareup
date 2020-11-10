@@ -8,6 +8,7 @@ router.post("/register", AccessController.saveNewUser);
 router.post("/login", AccessController.userLogin);
 router.get("/userinfo", AccessController.userInfo);
 router.get("/profile/getprofile", ProfileController.getProfile);
+router.get("/profile/getregistereduser", ProfileController.getRegisteredUser);
 router.patch("/profile/edit", ProfileController.updateProfileUser);
 router.get("/", UserController.findAllUsers);
 router.get("/images", UserController.picImage);
