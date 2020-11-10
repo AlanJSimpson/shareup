@@ -3,7 +3,6 @@ import styles from "./Home.module.css";
 import Navbar from "../components/Navbar";
 import Event from "../components/Event";
 import FooterComponent from "../components/FooterComponent";
-import axios from "axios";
 const fakeData = require("./fakeData");
 
 function Home() {

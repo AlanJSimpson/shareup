@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import cx from "classnames";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import HamburguerToX from "./HamburguerToX";
 import styles from "./style/Navbar.module.css";
-import getPassport from "../Api/getPassport";
+import { ContextConsumer } from '../context/ContextProvider'
 
 function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
   const [hamburguerIsClicked, setHamburguerIsClicked] = useState(false);
   const [configMenuClicked, setConfigMenuClicked] = useState(false);
   const [categoriesMenuOpen, setCategoriesMenuOpen] = useState(false);
-  const [userName, setUserName] = useState("");
+  const { userNameContext } = useContext(ContextConsumer)
+
 
   const handleResize = () => {
     if (window.innerWidth >= 768) {
@@ -24,12 +24,7 @@ function Navbar() {
     }
   };
 
-  useEffect(() => {
-    const asyncResult = async () => {
-      const result = await getPassport();
-      setUserName(result.data.passport.user.nome);
-    };
-    asyncResult();
+  useEffect(() => {  
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -41,7 +36,7 @@ function Navbar() {
           <Link to={"/home"}>
             <i className={cx("fas fa-home", styles.logoImg)}></i>
           </Link>
-          <span>Olá, {userName}</span>
+          <span>Olá, {userNameContext}</span>
         </div>
 
         <ul className={styles.navMenu}>
