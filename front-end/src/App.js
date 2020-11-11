@@ -7,9 +7,11 @@ import MyEvents from "./pages/MyEvents";
 import Profile from "./pages/Profile";
 import EditProfile from "./pages/EditProfile";
 import EventPage from "./pages/EventPage";
-import ContextProvider from './context/ContextProvider'
+import ContextProvider from './context/ContextProvider';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
+  
   return (
 
     <Router>
@@ -17,11 +19,11 @@ function App() {
         <Route path="/user/login" exact component={Login} />
         <Route path="/user/register" exact component={Register} />
         <ContextProvider>
-          <Route path="/home" exact component={Home} />
-          <Route path="/myevents" exact component={MyEvents} />
-          <Route path="/profile" exact component={Profile} />
-          <Route path="/user/profile/edit" exact component={EditProfile} />
-          <Route path="/event" exact component={EventPage} />
+          <ProtectedRoute path="/home" exact component={Home} />
+          <ProtectedRoute path="/myevents" exact component={MyEvents} />
+          <ProtectedRoute path="/profile" exact component={Profile} />
+          <ProtectedRoute path="/user/profile/edit" exact component={EditProfile} />
+          <ProtectedRoute path="/event" exact component={EventPage} />
         </ContextProvider>
       </Switch>
     </Router>

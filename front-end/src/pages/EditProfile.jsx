@@ -16,12 +16,12 @@ const { title, instructor, date, time, image } = {
   title: "Piano",
   instructor: "Miguel",
   date: "25/11",
-  time: "20:00", 
+  time: "20:00",
   image: "../images/piano.png",
 };
 
 export default function EditProfile() {
-  const {userNameContext, setUserNameContext} = useContext(ContextConsumer)
+  const { setUserNameContext } = useContext(ContextConsumer)
 
   const [userName, setUserName] = useState("");
   const [userCel, setUserCel] = useState("");
@@ -63,7 +63,7 @@ export default function EditProfile() {
     const asyncResult = async () => {
       const passportResult = await getPassport();
       const profileResult = await getProfile()
-      const {sexo, cel, about} = profileResult.data;
+      const { sexo, cel, about } = profileResult.data;
       setUserCel(cel)
       setAboutMe(about)
       setUserSex(sexo)

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/FooterComponent";
 import Event from "../components/Event";
@@ -10,7 +10,7 @@ import ButtonShareUp from "../components/ButtonShareUp";
 
 export default function EventPage() {
   const { name, photo, comment } = userData[1];
-  const [userInfo, setUserInfo] = useState();
+
   useEffect(() => {}, []);
 
   return (

@@ -9,8 +9,6 @@ export default function ContextProvider(props) {
     useEffect(() => {
         const asyncResult = async () => {
             const result = await getRegisteredUser();
-            console.log('rerender and fetch', result.data.nome)
-            console.log(userNameContext)
             setUserNameContext(result.data.nome);
         };
         asyncResult();
