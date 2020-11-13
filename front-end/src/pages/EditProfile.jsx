@@ -100,7 +100,7 @@ export default function EditProfile() {
           <input
             placeholder="Nome"
             type="text"
-            value={userName}
+            value={userName || ''}
             id="nameUser"
             onChange={setDataChange}
           />
@@ -109,14 +109,14 @@ export default function EditProfile() {
             placeholder="Cel"
             type="text"
             id="celUser"
-            value={userCel}
+            value={userCel  || ''}
             onChange={setDataChange}
           />
           <label htmlFor="userSex">Sexo:</label>
           <select
             name="userSex"
             id="userSex"
-            defaultValue={userSex}
+            defaultValue={userSex || ''}
             onChange={setDataChange}
           >
             <option disabled="disabled" value="null">
