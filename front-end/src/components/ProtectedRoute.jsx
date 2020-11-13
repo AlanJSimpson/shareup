@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Route, withRouter  } from 'react-router-dom';
 import getPassport from '../Api/getPassport';
+import {ContextConsumer} from '../context/ContextProvider'
 
 
 function ProtectedRoute(props) {
-    const [user, setUser] = useState('');
-
+    const {userNameContext, setUserNameContext} = useContext(ContextConsumer)
+    console.log('11111111111')
+    
     useEffect(() => {
+        console.log('2222222222')
         try {
             const fetcher = async () => {
                 const result = await getPassport();
                 if (!result.data.passport) {
                     props.history.push('/user/login')
                 } else {
-                    setUser(result.data.passport.user)
+                    setUserNameContext(result.data.passport.user)
                 }
 
             }
@@ -22,11 +25,11 @@ function ProtectedRoute(props) {
             console.log(error)
         }
 
-    }, [props.history])
+    }, [props.history, setUserNameContext])
     return (
         <Route
             path={props.path}
-            render={data => user ? <props.component user={user} /> : ''}
+            render={data => userNameContext ? <props.component user={userNameContext} /> : ''}
         >
         </Route>
     )

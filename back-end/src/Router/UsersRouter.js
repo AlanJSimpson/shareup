@@ -13,6 +13,7 @@ const checkAuthenticated = (req, res, next) => {
 
 router.post("/register", AccessController.saveNewUser);
 router.post("/login", AccessController.userLogin);
+router.get('/logout', AccessController.userLogout);
 router.get("/userinfo", checkAuthenticated, AccessController.userInfo);
 router.get("/profile/getprofile", checkAuthenticated, ProfileController.getProfile);
 router.get("/profile/getregistereduser", checkAuthenticated, ProfileController.getRegisteredUser);
