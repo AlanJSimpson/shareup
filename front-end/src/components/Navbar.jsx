@@ -1,17 +1,19 @@
 import React, { useState, useEffect, useContext } from "react";
 import cx from "classnames";
 import { Link } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
 import HamburguerToX from "./HamburguerToX";
 import styles from "./style/Navbar.module.css";
 import { ContextConsumer } from '../context/ContextProvider'
+import { logout } from '../Api/profileUserApi';
 
-function Navbar() {
+function Navbar(props) {
   const [showMenu, setShowMenu] = useState(false);
   const [hamburguerIsClicked, setHamburguerIsClicked] = useState(false);
   const [configMenuClicked, setConfigMenuClicked] = useState(false);
   const [categoriesMenuOpen, setCategoriesMenuOpen] = useState(false);
-  const { userNameContext } = useContext(ContextConsumer)
+  const { userNameContext, setUserNameContext } = useContext(ContextConsumer)
 
 
   const handleResize = () => {
@@ -24,7 +26,14 @@ function Navbar() {
     }
   };
 
-  useEffect(() => {  
+  const handleLogout = async () => {
+    setUserNameContext(null)
+    logout()
+    props.history.push('/user/login')
+
+  }
+
+  useEffect(() => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -36,7 +45,7 @@ function Navbar() {
           <Link to={"/home"}>
             <i className={cx("fas fa-home", styles.logoImg)}></i>
           </Link>
-          <span>Olá, {userNameContext}</span>
+          <span>Olá, {userNameContext.nome}</span>
         </div>
 
         <ul className={styles.navMenu}>
@@ -68,9 +77,9 @@ function Navbar() {
             <Link to="/">
               <li className={styles.configMenuItem}>item 2</li>
             </Link>
-            <Link to="/">
-              <li className={styles.configMenuItem}>item 3</li>
-            </Link>
+            
+              <li onClick={handleLogout} className={styles.configMenuItem}>Logout</li>
+            
           </ul>
         </div>
         <div className={styles.configMenuHide}></div>
@@ -148,4 +157,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default withRouter(Navbar);

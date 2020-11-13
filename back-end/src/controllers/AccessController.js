@@ -8,6 +8,16 @@ const userLogin = passport.authenticate("local", {
   failureFlash: true,
 });
 
+const userLogout = (req, res) => {
+  try {
+    req.session.destroy(function (err) { });
+
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
 const userInfo = (req, res) => {
   const user = req.session;
   res.send(user);
@@ -40,4 +50,4 @@ const saveNewUser = async (req, res) => {
   }
 };
 
-module.exports = { userLogin, saveNewUser, userInfo };
+module.exports = { userLogin, saveNewUser, userInfo, userLogout };

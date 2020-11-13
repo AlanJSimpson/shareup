@@ -36,8 +36,7 @@ const updateProfileUser = async (req, res) => {
 };
 
 const getProfile = async (req, res) => {
-  const id = req.session.passport.user.id_registered_user;
-
+  const id = req.session.passport.user.id_registered_user;3
   const result = await ProfileUser.findByPk(id);
   res.send(result)
 };

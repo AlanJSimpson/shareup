@@ -58,7 +58,7 @@
   margin-right: 2rem;
 }
 
-.navMenu a {
+.navMenu a, li {
   height: 100%;
   display: flex;
   color: white;
