@@ -1,20 +1,18 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import cx from "classnames";
 import { Link } from "react-router-dom";
-import { withRouter } from 'react-router-dom';
+import { withRouter } from "react-router-dom";
 
 import HamburguerToX from "./HamburguerToX";
 import styles from "./style/Navbar.module.css";
-import { ContextConsumer } from '../context/ContextProvider'
-import { logout } from '../Api/profileUserApi';
+import { logout, getProfile } from "../Api/profileUserApi";
 
 function Navbar(props) {
   const [showMenu, setShowMenu] = useState(false);
   const [hamburguerIsClicked, setHamburguerIsClicked] = useState(false);
   const [configMenuClicked, setConfigMenuClicked] = useState(false);
   const [categoriesMenuOpen, setCategoriesMenuOpen] = useState(false);
-  const { userNameContext, setUserNameContext } = useContext(ContextConsumer)
-
+  const [userName, setUserName] = useState("");
 
   const handleResize = () => {
     if (window.innerWidth >= 768) {
@@ -27,17 +25,21 @@ function Navbar(props) {
   };
 
   const handleLogout = async () => {
-    setUserNameContext(null)
-    logout()
-    props.history.push('/user/login')
-
-  }
+    setUserName(null);
+    logout();
+    props.history.push("/user/login");
+  };
 
   useEffect(() => {
+    const asyncResult = async () => {
+      const result = await getProfile();
+      setUserName(result.data.registeredUser.nome || null);
+    };
+
+    asyncResult();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
+  }, [userName]);
   return (
     <nav className={styles.Nav}>
       <div className={styles.navbarContainer}>
@@ -45,7 +47,7 @@ function Navbar(props) {
           <Link to={"/home"}>
             <i className={cx("fas fa-home", styles.logoImg)}></i>
           </Link>
-          <span>Olá, {userNameContext.nome}</span>
+          <span>Olá, {userName}</span>
         </div>
 
         <ul className={styles.navMenu}>
@@ -77,9 +79,10 @@ function Navbar(props) {
             <Link to="/">
               <li className={styles.configMenuItem}>item 2</li>
             </Link>
-            
-              <li onClick={handleLogout} className={styles.configMenuItem}>Logout</li>
-            
+
+            <li onClick={handleLogout} className={styles.configMenuItem}>
+              Logout
+            </li>
           </ul>
         </div>
         <div className={styles.configMenuHide}></div>

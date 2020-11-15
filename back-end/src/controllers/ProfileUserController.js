@@ -2,7 +2,7 @@ const { ProfileUser, RegisteredUser } = require("../models");
 
 const updateProfileUser = async (req, res) => {
   const { nome, sexo, about, cel } = req.body;
-  const {id_registered_user} = req.session.passport.user
+  const { id_registered_user } = req.session.passport.user;
 
   try {
     const updateProfile = await ProfileUser.update(
@@ -23,28 +23,36 @@ const updateProfileUser = async (req, res) => {
   }
 
   try {
-    await RegisteredUser.update({
-      nome
-    },{
-      where: {
-        id_registered_user
+    await RegisteredUser.update(
+      {
+        nome,
+      },
+      {
+        where: {
+          id_registered_user,
+        },
       }
-    })
+    );
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
+  try {
+  } catch (error) {}
 };
 
 const getProfile = async (req, res) => {
-  const id = req.session.passport.user.id_registered_user;3
-  const result = await ProfileUser.findByPk(id);
-  res.send(result)
+  const id = req.session.passport.user.id_registered_user;
+  const result = await ProfileUser.findOne({
+    where: { fk_registered_user: id },
+    include: "registeredUser",
+  });
+  res.send(result);
 };
 
 const getRegisteredUser = async (req, res) => {
   const id = req.session.passport.user.id_registered_user;
   const result = await RegisteredUser.findByPk(id);
-  res.send(result)
-}
+  res.send(result);
+};
 
 module.exports = { updateProfileUser, getProfile, getRegisteredUser };

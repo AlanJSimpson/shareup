@@ -1,14 +1,12 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, withRouter } from "react-router-dom";
 import cx from "classnames";
 
-import { ContextConsumer } from '../context/ContextProvider'
 import Navbar from "../components/Navbar";
 import Footer from "../components/FooterComponent";
 import styles from "./EditProfile.module.css";
 import BoxEvents from "../components/BoxEvents";
 import data from "./userData";
-import getPassport from "../Api/getPassport";
 import { updateProfile, getProfile } from "../Api/profileUserApi";
 
 const { title, instructor, date, time, image } = {
@@ -20,13 +18,12 @@ const { title, instructor, date, time, image } = {
   image: "../images/piano.png",
 };
 
-export default function EditProfile() {
-  const { setUserNameContext } = useContext(ContextConsumer)
-
+export default withRouter(function EditProfile(props) {
   const [userName, setUserName] = useState("");
   const [userCel, setUserCel] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [userSex, setUserSex] = useState("");
+  const [userAvatar, setUserAvatar] = useState("");
 
   const setDataChange = (e) => {
     switch (e.target.id) {
@@ -42,6 +39,9 @@ export default function EditProfile() {
       case "aboutUser":
         setAboutMe(e.target.value);
         break;
+      case "inputUserImage":
+        setUserAvatar(e.target.value);
+        break;
       default:
         break;
     }
@@ -53,21 +53,19 @@ export default function EditProfile() {
       cel: userCel || null,
       about: aboutMe,
       sexo: userSex || null,
+      img: userAvatar || null,
     });
-    console.log(result);
-    setUserNameContext(userName)
-    return result;
+    props.history.push("/profile");
   };
 
   useEffect(() => {
     const asyncResult = async () => {
-      const passportResult = await getPassport();
-      const profileResult = await getProfile()
-      const { sexo, cel, about } = profileResult.data;
-      setUserCel(cel)
-      setAboutMe(about)
-      setUserSex(sexo)
-      setUserName(passportResult.data.passport.user.nome);
+      const profileResult = await getProfile();
+      const { sexo, cel, about, registeredUser } = profileResult.data;
+      setUserCel(cel);
+      setAboutMe(about);
+      setUserSex(sexo);
+      setUserName(registeredUser.nome);
     };
 
     asyncResult();
@@ -76,7 +74,7 @@ export default function EditProfile() {
   return (
     <>
       <Navbar />
-      <div className={styles.EditProfile}>
+      <form action="" method="post" encType="multipart/form-data">
         <div className={styles.avatarContainer}>
           <Link to="/profile">
             <span className={styles.backArrow}>
@@ -87,20 +85,28 @@ export default function EditProfile() {
             style={{ backgroundImage: `url(../${data[0].photo}` }}
             className={styles.avatar}
           ></div>
-          <Link to="/profile/edit">
+          <label htmlFor="inputUserImage">
             <span className={styles.camera}>
               <i className="fas fa-camera"></i>
             </span>
-          </Link>
+          </label>
+          <input
+            type="file"
+            name=""
+            id="inputUserImage"
+            style={{ display: "none" }}
+            onChange={(e) => console.log(e.target.value)}
+          />
         </div>
-        <h3 className={styles.infoTitle}>Informações pessoais:</h3>
-
+      </form>
+      <div className={styles.EditProfile}>
         <form className={styles.formContainer} action="">
+          <h3 className={styles.infoTitle}>Informações pessoais:</h3>
           <label htmlFor="nameUser">Nome:</label>
           <input
             placeholder="Nome"
             type="text"
-            value={userName || ''}
+            value={userName || ""}
             id="nameUser"
             onChange={setDataChange}
           />
@@ -109,17 +115,17 @@ export default function EditProfile() {
             placeholder="Cel"
             type="text"
             id="celUser"
-            value={userCel  || ''}
+            value={userCel || ""}
             onChange={setDataChange}
           />
           <label htmlFor="userSex">Sexo:</label>
           <select
             name="userSex"
             id="userSex"
-            defaultValue={userSex || ''}
             onChange={setDataChange}
+            value={userSex || ""}
           >
-            <option disabled="disabled" value="null">
+            <option disabled="disabled" value="">
               Escolha:
             </option>
             <option value="Masculino">Masculino</option>
@@ -149,4 +155,4 @@ export default function EditProfile() {
       <Footer />
     </>
   );
-}
+});

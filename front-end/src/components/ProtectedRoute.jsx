@@ -1,38 +1,34 @@
-import React, { useEffect, useContext } from 'react';
-import { Route, withRouter  } from 'react-router-dom';
-import getPassport from '../Api/getPassport';
-import {ContextConsumer} from '../context/ContextProvider'
-
+import React, { useEffect, useContext } from "react";
+import { Route, withRouter } from "react-router-dom";
+import getPassport from "../Api/getPassport";
+import { ContextConsumer } from "../context/ContextProvider";
 
 function ProtectedRoute(props) {
-    const {userNameContext, setUserNameContext} = useContext(ContextConsumer)
-    console.log('11111111111')
-    
-    useEffect(() => {
-        console.log('2222222222')
-        try {
-            const fetcher = async () => {
-                const result = await getPassport();
-                if (!result.data.passport) {
-                    props.history.push('/user/login')
-                } else {
-                    setUserNameContext(result.data.passport.user)
-                }
+  const { userNameContext, setUserNameContext } = useContext(ContextConsumer);
 
-            }
-            fetcher()
-        } catch (error) {
-            console.log(error)
+  useEffect(() => {
+    try {
+      const fetcher = async () => {
+        const result = await getPassport();
+        if (!result.data.passport) {
+          props.history.push("/user/login");
+        } else {
+          setUserNameContext(result.data.passport.user);
         }
-
-    }, [props.history, setUserNameContext])
-    return (
-        <Route
-            path={props.path}
-            render={data => userNameContext ? <props.component user={userNameContext} /> : ''}
-        >
-        </Route>
-    )
+      };
+      fetcher();
+    } catch (error) {
+      console.log(error);
+    }
+  }, [props.history, setUserNameContext]);
+  return (
+    <Route
+      path={props.path}
+      render={(data) =>
+        userNameContext ? <props.component user={userNameContext} /> : ""
+      }
+    ></Route>
+  );
 }
 
-export default withRouter(ProtectedRoute)
+export default withRouter(ProtectedRoute);
