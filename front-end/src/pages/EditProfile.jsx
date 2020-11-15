@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, withRouter } from "react-router-dom";
 import cx from "classnames";
 
@@ -23,7 +23,8 @@ export default withRouter(function EditProfile(props) {
   const [userCel, setUserCel] = useState("");
   const [aboutMe, setAboutMe] = useState("");
   const [userSex, setUserSex] = useState("");
-  const [userAvatar, setUserAvatar] = useState("");
+  const formEl = useRef(null);
+ 
 
   const setDataChange = (e) => {
     switch (e.target.id) {
@@ -39,22 +40,19 @@ export default withRouter(function EditProfile(props) {
       case "aboutUser":
         setAboutMe(e.target.value);
         break;
-      case "inputUserImage":
-        setUserAvatar(e.target.value);
-        break;
       default:
         break;
     }
   };
 
   const updateData = async () => {
-    const result = await updateProfile({
+    await updateProfile({
       nome: userName,
       cel: userCel || null,
       about: aboutMe,
-      sexo: userSex || null,
-      img: userAvatar || null,
+      sexo: userSex || null
     });
+    formEl.current.submit()
     props.history.push("/profile");
   };
 
@@ -74,32 +72,32 @@ export default withRouter(function EditProfile(props) {
   return (
     <>
       <Navbar />
-      <form action="" method="post" encType="multipart/form-data">
-        <div className={styles.avatarContainer}>
-          <Link to="/profile">
-            <span className={styles.backArrow}>
-              <i className="fas fa-arrow-left"></i>
-            </span>
-          </Link>
-          <div
-            style={{ backgroundImage: `url(../${data[0].photo}` }}
-            className={styles.avatar}
-          ></div>
-          <label htmlFor="inputUserImage">
-            <span className={styles.camera}>
-              <i className="fas fa-camera"></i>
-            </span>
-          </label>
-          <input
-            type="file"
-            name=""
-            id="inputUserImage"
-            style={{ display: "none" }}
-            onChange={(e) => console.log(e.target.value)}
-          />
-        </div>
-      </form>
       <div className={styles.EditProfile}>
+        <form ref={formEl} action="http://localhost:3001/user/profile/edit" method="post" encType="multipart/form-data">
+          <div className={styles.avatarContainer}>
+            <Link to="/profile">
+              <span className={styles.backArrow}>
+                <i className="fas fa-arrow-left"></i>
+              </span>
+            </Link>
+            <div
+              style={{ backgroundImage: `url(../${data[0].photo}` }}
+              className={styles.avatar}
+            ></div>
+            <label htmlFor="inputUserImage">
+              <span className={styles.camera}>
+                <i className="fas fa-camera"></i>
+              </span>
+            </label>
+            <input
+              type="file"
+              name="avatar"
+              id="inputUserImage"
+              style={{ display: "none" }}
+              onChange={(e) => console.log(e.target.value)}
+            />
+          </div>
+        </form>
         <form className={styles.formContainer} action="">
           <h3 className={styles.infoTitle}>Informações pessoais:</h3>
           <label htmlFor="nameUser">Nome:</label>

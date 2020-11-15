@@ -11,10 +11,11 @@ const multer = require("multer");
 
 let storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join("teste"));
+    
+    cb(null, path.join('/avatars') );
   },
   filename: function (req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now());
+    cb(null, file.fieldname + "-" + Date.now() + '.jpg');
   },
 });
 
@@ -41,6 +42,14 @@ router.patch(
   checkAuthenticated,
   upload.any(),
   ProfileController.updateProfileUser
+);
+router.post(
+  "/profile/edit",
+  checkAuthenticated,
+  upload.any(),
+  (req, res) => {
+    res.end()
+  }
 );
 router.get("/", checkAuthenticated, UserController.findAllUsers);
 router.get("/images", checkAuthenticated, UserController.picImage);
