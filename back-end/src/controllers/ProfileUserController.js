@@ -1,11 +1,12 @@
-const { ProfileUser, RegisteredUser } = require("../models");
+const { ProfileUser, RegisteredUser, Image } = require('../models');
+const path = require('path');
 
 const updateProfileUser = async (req, res) => {
-  const { nome, sexo, about, cel } = req.body;
+  const { nome, sexo, about, cel, avatar } = req.body;
   const { id_registered_user } = req.session.passport.user;
 
   try {
-    const updateProfile = await ProfileUser.update(
+    await ProfileUser.update(
       {
         sexo,
         about,
@@ -17,7 +18,7 @@ const updateProfileUser = async (req, res) => {
         },
       }
     );
-    res.status(200).send("deu certo");
+    res.status(200).send('deu certo');
   } catch (error) {
     res.send(error.message);
   }
@@ -37,14 +38,50 @@ const updateProfileUser = async (req, res) => {
     console.log(error);
   }
   try {
-  } catch (error) {}
+    let avatarReplaced = avatar.replace(
+      'C:\\fakepath',
+      path.join(__dirname, '..', '..', '..', 'front-end', 'public', 'avatars')
+    );
+
+    let idProfileUser = await ProfileUser.findOne({
+      where: {
+        fk_registered_user: id_registered_user,
+      },
+    });
+
+    let searchAvatar = await Image.findOne({
+      where: {
+        fk_profile_user: idProfileUser.id_profile_user,
+      },
+    });
+
+    if (searchAvatar) {
+      await Image.update(
+        { avatar_user: avatarReplaced },
+        {
+          where: {
+            fk_profile_user: idProfileUser.id_profile_user,
+          },
+        }
+      );
+    } else {
+      await Image.create({
+        avatar_user: avatarReplaced,
+        fk_profile_user: idProfileUser.id_profile_user,
+        image_event: null,
+        fk_events: null,
+      });
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 const getProfile = async (req, res) => {
   const id = req.session.passport.user.id_registered_user;
   const result = await ProfileUser.findOne({
     where: { fk_registered_user: id },
-    include: "registeredUser",
+    include: 'registeredUser',
   });
   res.send(result);
 };
