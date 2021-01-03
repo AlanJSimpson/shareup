@@ -87,9 +87,7 @@ export default withRouter(function EditProfile(props) {
               </span>
             </Link>
             <div
-              style={{
-                backgroundImage: `url(../avatars/avatar-1609622530601.jpg)`,
-              }}
+              style={{ backgroundImage: "url(../../avatars/avatar-1609622530601.jpg)" }}
               className={styles.avatar}></div>
 
             <label htmlFor='inputUserImage'>
