@@ -61,15 +61,24 @@ export default withRouter(function EditProfile(props) {
   useEffect(() => {
     const asyncResult = async () => {
       const profileResult = await getProfile();
-      const { sexo, cel, about, registeredUser } = profileResult.data;
+      const {
+        sexo,
+        cel,
+        about,
+        registeredUser,
+        avatar_user,
+      } = profileResult.data;
+      const avatarUser = avatar_user.slice(avatar_user.search(/avatars/i) + 8);
+      console.log(avatarUser);
       setUserCel(cel);
       setAboutMe(about);
       setUserSex(sexo);
       setUserName(registeredUser.nome);
+      setAvatar(avatarUser);
     };
-
+    console.log('->', avatar);
     asyncResult();
-  }, []);
+  }, [avatar]);
 
   return (
     <>
@@ -87,7 +96,9 @@ export default withRouter(function EditProfile(props) {
               </span>
             </Link>
             <div
-              style={{ backgroundImage: "url(../../avatars/avatar-1609622530601.jpg)" }}
+              style={{
+                backgroundImage: `url(../../avatars/${avatar})`,
+              }}
               className={styles.avatar}></div>
 
             <label htmlFor='inputUserImage'>

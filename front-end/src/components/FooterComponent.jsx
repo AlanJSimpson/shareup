@@ -1,8 +1,8 @@
-import React from "react";
-import { FaFacebook } from "react-icons/fa";
-import { FiInstagram } from "react-icons/fi";
-import { GrTwitter, GrLinkedin } from "react-icons/gr";
-import css from "./style/Footer.module.css";
+import React from 'react';
+import { FaFacebook } from 'react-icons/fa';
+import { FiInstagram } from 'react-icons/fi';
+import { GrLinkedin, GrTwitter } from 'react-icons/gr';
+import css from './style/Footer.module.css';
 
 export default function FooterComponent() {
   return (
@@ -25,7 +25,6 @@ export default function FooterComponent() {
         <span>renanfelice@gmail.com</span>
         <span>alansantos.dev@gmail.com</span>
         <span>jasminirebeca10@gmail.com</span>
-        <span>mayara.liandra199921@gmail.com</span>
       </div>
     </div>
   );

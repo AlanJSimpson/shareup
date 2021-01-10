@@ -18,7 +18,7 @@ const updateProfileUser = async (req, res) => {
         },
       }
     );
-    res.status(200).send('deu certo');
+    res.status(200).end();
   } catch (error) {
     res.send(error.message);
   }
@@ -78,12 +78,28 @@ const updateProfileUser = async (req, res) => {
 };
 
 const getProfile = async (req, res) => {
-  const id = req.session.passport.user.id_registered_user;
-  const result = await ProfileUser.findOne({
-    where: { fk_registered_user: id },
-    include: 'registeredUser',
-  });
-  res.send(result);
+  try {
+    const id = req.session.passport.user.id_registered_user;
+    const profile = await ProfileUser.findOne({
+      where: { fk_registered_user: id },
+      include: 'registeredUser',
+    });
+
+    const idProfileUser = await ProfileUser.findOne({
+      where: {
+        fk_registered_user: id,
+      },
+    });
+
+    const avatarProfile = await Image.findOne({
+      where: { fk_profile_user: idProfileUser.id_profile_user },
+    });
+
+    const result = { ...profile.dataValues, ...avatarProfile.dataValues };
+    res.send(result);
+  } catch (error) {
+    res.send(error);
+  }
 };
 
 const getRegisteredUser = async (req, res) => {
@@ -92,4 +108,8 @@ const getRegisteredUser = async (req, res) => {
   res.send(result);
 };
 
-module.exports = { updateProfileUser, getProfile, getRegisteredUser };
+module.exports = {
+  updateProfileUser,
+  getProfile,
+  getRegisteredUser,
+};
