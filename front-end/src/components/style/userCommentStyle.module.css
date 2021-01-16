@@ -16,23 +16,23 @@
   resize: none;
 }
 
-.avatarContainer{
+.avatarContainer {
   position: relative;
   width: 100px;
   height: 100px;
 }
 
-.avatarInfo{
+.avatarInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 150px;
 }
 
-.avatarInfo span{
+.avatarInfo span {
   text-align: center;
 }
-.avatar{
+.avatar {
   border-radius: 50%;
   position: absolute;
   background-size: cover;
@@ -54,14 +54,12 @@
     height: 100px;
   }
 
- 
-
-  .avatarInfo span{
+  .avatarInfo span {
     font-size: 0.8em;
   }
 }
 
-@media (max-width:  580px) {
+@media (max-width: 580px) {
   .comments textarea {
     width: 200px;
     height: 80px;
@@ -69,13 +67,12 @@
     margin-left: 10px;
   }
 
-  .avatarContainer{
+  .avatarContainer {
     width: 70px;
     height: 70px;
   }
-  
-  .avatarInfo{
 
+  .avatarInfo {
     width: 90px;
   }
 }

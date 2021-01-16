@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./style/HamburguerToX.module.css";
-import cx from "classnames";
+import cx from 'classnames';
+import React from 'react';
+import styles from './style/HamburguerToX.module.css';
 
 function HamburguerToX({
   showMenu,
@@ -18,7 +18,7 @@ function HamburguerToX({
         width: `${hamContainerSize}px`,
       }}
       className={styles.hamburguerContainer}
-      onClick={(e) => {
+      onClick={e => {
         setHamburguerIsClicked(!hamburguerIsClicked);
         setShowMenu(!showMenu);
       }}
@@ -28,9 +28,7 @@ function HamburguerToX({
           hamburguerIsClicked
             ? {
                 height: `${hamLineHeight}px`,
-                transform: `translateY(${
-                  hamContainerSize / 2 - hamLineHeight / 2
-                }px) rotate(135deg)`,
+                transform: `translateY(${hamContainerSize / 2 - hamLineHeight / 2}px) rotate(135deg)`,
                 backgroundColor: `${hamColor}`,
               }
             : { backgroundColor: `${hamColor}`, height: `${hamLineHeight}px` }
@@ -54,9 +52,7 @@ function HamburguerToX({
           hamburguerIsClicked
             ? {
                 height: `${hamLineHeight}px`,
-                transform: `translateY(${
-                  -hamContainerSize / 2 + hamLineHeight / 2
-                }px) rotate(-135deg)`,
+                transform: `translateY(${-hamContainerSize / 2 + hamLineHeight / 2}px) rotate(-135deg)`,
                 backgroundColor: `${hamColor}`,
               }
             : { backgroundColor: `${hamColor}`, height: `${hamLineHeight}px` }

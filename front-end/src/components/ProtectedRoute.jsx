@@ -1,7 +1,7 @@
-import React, { useEffect, useContext } from "react";
-import { Route, withRouter } from "react-router-dom";
-import getPassport from "../Api/getPassport";
-import { ContextConsumer } from "../context/ContextProvider";
+import React, { useEffect, useContext } from 'react';
+import { Route, withRouter } from 'react-router-dom';
+import getPassport from '../Api/getPassport';
+import { ContextConsumer } from '../context/ContextProvider';
 
 function ProtectedRoute(props) {
   const { userNameContext, setUserNameContext } = useContext(ContextConsumer);
@@ -11,7 +11,7 @@ function ProtectedRoute(props) {
       const fetcher = async () => {
         const result = await getPassport();
         if (!result.data.passport) {
-          props.history.push("/user/login");
+          props.history.push('/user/login');
         } else {
           setUserNameContext(result.data.passport.user);
         }
@@ -24,9 +24,7 @@ function ProtectedRoute(props) {
   return (
     <Route
       path={props.path}
-      render={(data) =>
-        userNameContext ? <props.component user={userNameContext} /> : ""
-      }
+      render={data => (userNameContext ? <props.component user={userNameContext} /> : '')}
     ></Route>
   );
 }

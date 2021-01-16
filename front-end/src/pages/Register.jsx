@@ -1,8 +1,8 @@
-import React from "react";
-import css from "./loginStyle.module.css";
-import InputShareUp from "../components/InputShareUp";
-import ButtonShareUp from "../components/ButtonShareUp";
-import { Link } from "react-router-dom";
+import React from 'react';
+import css from './loginStyle.module.css';
+import InputShareUp from '../components/InputShareUp';
+import ButtonShareUp from '../components/ButtonShareUp';
+import { Link } from 'react-router-dom';
 
 export default function Cadastro() {
   return (
@@ -12,10 +12,7 @@ export default function Cadastro() {
           <div className={css.logo}>
             <img src="../images/logo.png" alt="logo" />
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus at
-            vitae iusto consequatur nulla. 
-          </p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus at vitae iusto consequatur nulla.</p>
         </div>
 
         <form
@@ -26,20 +23,8 @@ export default function Cadastro() {
           action="http://localhost:3001/user/register"
         >
           <h3 className={css.registerTitle}>Faça o seu cadastro</h3>
-          <InputShareUp
-            type="text"
-            placeholder="nome"
-            name="nome"
-            id="nome"
-            icon="fas fa-user-alt"
-          />
-          <InputShareUp
-            type="email"
-            placeholder="email"
-            name="email"
-            id="email"
-            icon="fas fa-envelope"
-          />
+          <InputShareUp type="text" placeholder="nome" name="nome" id="nome" icon="fas fa-user-alt" />
+          <InputShareUp type="email" placeholder="email" name="email" id="email" icon="fas fa-envelope" />
           <InputShareUp
             type="password"
             placeholder="senha"
@@ -67,9 +52,9 @@ export default function Cadastro() {
 }
 
 const flexColumn = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  textAlign: "center",
-  width: "40%",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
+  width: '40%',
 };

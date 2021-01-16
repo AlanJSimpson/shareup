@@ -1,21 +1,13 @@
-import React from "react";
-import css from "./style/inputShareStyle.module.css";
+import React from 'react';
+import css from './style/inputShareStyle.module.css';
 
-export default function Input({
-  type,
-  placeholder,
-  name,
-  id,
-  required,
-  maxLength,
-  minLength,
-  style,
-  icon
-}) {
+export default function Input({ type, placeholder, name, id, required, maxLength, minLength, style, icon }) {
   return (
     <>
       <div className={css.inputContainer}>
-        <div className={css.inputIcon}><i className={icon}></i></div>
+        <div className={css.inputIcon}>
+          <i className={icon}></i>
+        </div>
         <input
           className={css.inputStyle}
           type={type}

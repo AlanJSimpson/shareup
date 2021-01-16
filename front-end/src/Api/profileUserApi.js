@@ -1,6 +1,6 @@
-const axios = require("axios");
+const axios = require('axios');
 
-const url = "http://localhost:3001/user/profile";
+const url = 'http://localhost:3001/user/profile';
 
 export const getProfile = async () => {
   const result = await axios(`${url}/getprofile`, { withCredentials: true });
@@ -14,7 +14,7 @@ export const getRegisteredUser = async () => {
   return result;
 };
 
-export const updateProfile = async (updatedData) => {
+export const updateProfile = async updatedData => {
   const result = await axios.patch(`${url}/edit`, updatedData, {
     withCredentials: true,
   });

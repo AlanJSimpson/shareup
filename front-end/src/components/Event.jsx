@@ -1,13 +1,10 @@
-import React from "react";
-import styles from "./style/Event.module.css";
+import React from 'react';
+import styles from './style/Event.module.css';
 
 function Event({ title, instructor, date, time, image }) {
   return (
     <div className={styles.eventContainer}>
-      <div
-        style={{ backgroundImage: `url(${image})` }}
-        className={styles.eventImg}
-      ></div>
+      <div style={{ backgroundImage: `url(${image})` }} className={styles.eventImg}></div>
       <div className={styles.eventTitle}>{title}</div>
       <div className={styles.eventInstructor}>Instrutor: {instructor}</div>
       <div className={styles.eventDateContainer}>

@@ -1,36 +1,34 @@
-.hamburguerContainer{
-    display: none;
-    margin-right: 2rem;
-    transition: all 0.3s ease-out; 
-    position: relative;
+.hamburguerContainer {
+  display: none;
+  margin-right: 2rem;
+  transition: all 0.3s ease-out;
+  position: relative;
 }
 
-
-.topBar, .middleBar, .bottonBar {
-    position: absolute;
-    width: 100%;
-    border-radius: 10px;
-    transition: all 0.3s ease-out;
-    
+.topBar,
+.middleBar,
+.bottonBar {
+  position: absolute;
+  width: 100%;
+  border-radius: 10px;
+  transition: all 0.3s ease-out;
 }
 
-.topBar{
-    top: 0px;
+.topBar {
+  top: 0px;
 }
 
-.bottonBar{
-    bottom: 0px;
+.bottonBar {
+  bottom: 0px;
 }
 
-
-.middleBarClicked{
-    opacity: 0;
-    transform: translateX(-30px);
+.middleBarClicked {
+  opacity: 0;
+  transform: translateX(-30px);
 }
 
-
-@media screen and (max-width: 768px){
-    .hamburguerContainer{
-        display: block;  
-    }
+@media screen and (max-width: 768px) {
+  .hamburguerContainer {
+    display: block;
+  }
 }

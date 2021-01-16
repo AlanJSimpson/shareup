@@ -1,8 +1,8 @@
-import React from "react";
-import BoxEvents from "../components/BoxEvents";
-import FooterComponent from "../components/FooterComponent";
-import Navbar from "../components/Navbar";
-import fakeData from "../pages/fakeData";
+import React from 'react';
+import BoxEvents from '../components/BoxEvents';
+import FooterComponent from '../components/FooterComponent';
+import Navbar from '../components/Navbar';
+import fakeData from '../pages/fakeData';
 
 export default function MyEvents() {
   return (

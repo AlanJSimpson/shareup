@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
-import styles from "./Home.module.css";
-import Navbar from "../components/Navbar";
-import Event from "../components/Event";
-import FooterComponent from "../components/FooterComponent";
-const fakeData = require("./fakeData");
+import React, { useState, useEffect } from 'react';
+import styles from './Home.module.css';
+import Navbar from '../components/Navbar';
+import Event from '../components/Event';
+import FooterComponent from '../components/FooterComponent';
+const fakeData = require('./fakeData');
 
 function Home() {
   const [events, setEvents] = useState([]);
@@ -24,7 +24,7 @@ function Home() {
   }, []);
 
   if (events.length) {
-    result = events.map((event) => <Event key={event.id} {...event} />);
+    result = events.map(event => <Event key={event.id} {...event} />);
   }
 
   return (
@@ -32,11 +32,7 @@ function Home() {
       <Navbar />
       <div className={styles.home}>
         <div className={styles.logoContainer}>
-          <img
-            className={styles.logoImg}
-            src="images/logo.png"
-            alt="Logo da ShareUp"
-          />
+          <img className={styles.logoImg} src="images/logo.png" alt="Logo da ShareUp" />
         </div>
         <div className={styles.categoriesMenu}>
           <ul>

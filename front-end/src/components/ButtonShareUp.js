@@ -1,5 +1,5 @@
-import React from "react";
-import css from "./style/buttonStyle.module.css";
+import React from 'react';
+import css from './style/buttonStyle.module.css';
 
 export default function ButtonShareUp({ type, newStyle, children, id }) {
   return (

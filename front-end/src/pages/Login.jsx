@@ -1,9 +1,9 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-import InputShareUp from "../components/InputShareUp";
-import ButtonShareUp from "../components/ButtonShareUp";
-import css from "./loginStyle.module.css";
+import InputShareUp from '../components/InputShareUp';
+import ButtonShareUp from '../components/ButtonShareUp';
+import css from './loginStyle.module.css';
 
 export default function Login() {
   return (
@@ -23,21 +23,9 @@ export default function Login() {
             encType="application/x-www-form-urlencoded"
             action="http://localhost:3001/user/login"
           >
-            <InputShareUp
-              type="email"
-              placeholder="email"
-              name="email"
-              id="email"
-              icon="fas fa-user-alt"
-            />
+            <InputShareUp type="email" placeholder="email" name="email" id="email" icon="fas fa-user-alt" />
 
-            <InputShareUp
-              type="password"
-              placeholder="senha"
-              name="password"
-              id="password"
-              icon="fas fa-lock"
-            />
+            <InputShareUp type="password" placeholder="senha" name="password" id="password" icon="fas fa-lock" />
 
             <a id="forgot-password" href="https//www.google.com.br">
               Esqueci a senha
@@ -54,9 +42,9 @@ export default function Login() {
 }
 
 const flexColumn = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  textAlign: "center",
-  width: "40%",
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'center',
+  width: '40%',
 };

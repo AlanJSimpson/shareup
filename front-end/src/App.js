@@ -1,19 +1,17 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import Home from "./pages/Home";
-import MyEvents from "./pages/MyEvents";
-import Profile from "./pages/Profile";
-import EditProfile from "./pages/EditProfile";
-import EventPage from "./pages/EventPage";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from './pages/Login.jsx';
+import Register from './pages/Register.jsx';
+import Home from './pages/Home';
+import MyEvents from './pages/MyEvents';
+import Profile from './pages/Profile';
+import EditProfile from './pages/EditProfile';
+import EventPage from './pages/EventPage';
 import ContextProvider from './context/ContextProvider';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  
   return (
-
     <Router>
       <Switch>
         <Route path="/user/login" exact component={Login} />
@@ -28,7 +26,6 @@ function App() {
       </Switch>
     </Router>
   );
-
 }
 
 export default App;

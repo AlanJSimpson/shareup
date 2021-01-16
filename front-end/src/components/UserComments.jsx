@@ -1,5 +1,5 @@
-import React from "react";
-import css from "./style/userCommentStyle.module.css";
+import React from 'react';
+import css from './style/userCommentStyle.module.css';
 
 export default function UserComments({ name, photo, comment, rows, cols }) {
   return (
@@ -18,12 +18,9 @@ export default function UserComments({ name, photo, comment, rows, cols }) {
             disabled="disabled"
             placeholder="Escreva algo..."
             defaultValue={comment}
-          >
-            
-          </textarea>
+          ></textarea>
         </div>
       </div>
     </>
   );
 }
-

@@ -1,6 +1,6 @@
 .buttonStyle {
-  background-color: #DB56A9;
-  border: 1px solid #DB56A9;
+  background-color: #db56a9;
+  border: 1px solid #db56a9;
   border-radius: 10px;
   color: white;
   font-size: 1em;
@@ -8,12 +8,11 @@
   height: 25px;
   margin-top: 20px;
   margin-bottom: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 .buttonStyle:hover {
   cursor: pointer;
 }
 
 @media (min-width: 960px) {
-  
 }

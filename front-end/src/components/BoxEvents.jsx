@@ -1,6 +1,6 @@
-import React from "react";
-import Event from "./Event";
-import css from "./style/boxEvents.module.css";
+import React from 'react';
+import Event from './Event';
+import css from './style/boxEvents.module.css';
 
 export default function BoxEvents({ content, children }) {
   return (
