@@ -1,4 +1,4 @@
-const { RegisteredUser, ProfileUser } = require("../models");
+const { RegisteredUser, ProfileUser, Image } = require("../models");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 
@@ -34,12 +34,19 @@ const saveNewUser = async (req, res) => {
         email,
         senha: hashPass,
       });
-      await ProfileUser.create({
+      const idProfileUser = await ProfileUser.create({
         sexo: null,
         cel: null,
         about: null,
         fk_registered_user: id.id_registered_user,
       });
+
+      await Image.create({
+        avatar_user:null,
+        image_event:null,
+        fk_profile_user: idProfileUser.dataValues.id_profile_user,
+        fk_events:null
+      })
 
       res.status(201).redirect("http://localhost:3000/user/login");
     } catch (error) {
