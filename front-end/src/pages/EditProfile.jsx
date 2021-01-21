@@ -40,6 +40,7 @@ export default withRouter(function EditProfile(props) {
         break;
       case 'inputUserImage':
         setAvatar(e.target.value);
+        console.log('-+--->', avatar);
         break;
       default:
         break;
@@ -62,16 +63,16 @@ export default withRouter(function EditProfile(props) {
     const asyncResult = async () => {
       const profileResult = await getProfile();
       const { sexo, cel, about, registeredUser, avatar_user } = profileResult.data;
-      const avatarUser = avatar_user.slice(avatar_user.search(/avatars/i) + 8);
-      console.log(avatarUser);
+      console.log(avatar_user);
+      //const avatarUser = avatar_user.slice(avatar_user.search(/avatars/i) + 8);
       setUserCel(cel);
       setAboutMe(about);
       setUserSex(sexo);
       setUserName(registeredUser.nome);
-      setAvatar(avatarUser);
+      //setAvatar(avatarUser);
     };
-    console.log('->', avatar);
     asyncResult();
+    console.log('->', avatar);
   }, [avatar]);
 
   return (

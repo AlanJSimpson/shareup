@@ -38,10 +38,12 @@ const updateProfileUser = async (req, res) => {
     console.log(error);
   }
   try {
+    console.log(avatar);
     let avatarReplaced = avatar.replace(
       'C:\\fakepath',
       path.join(__dirname, '..', '..', '..', 'front-end', 'public', 'avatars')
     );
+    console.log('apos replace ->', avatar);
 
     let idProfileUser = await ProfileUser.findOne({
       where: {

@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
 import cx from 'classnames';
-import { Link } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
-
+import React, { useEffect, useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import { getProfile, logout } from '../Api/profileUserApi';
 import HamburguerToX from './HamburguerToX';
 import styles from './style/Navbar.module.css';
-import { logout, getProfile } from '../Api/profileUserApi';
 
 function Navbar(props) {
   const [showMenu, setShowMenu] = useState(false);
@@ -112,7 +110,7 @@ function Navbar(props) {
                 <i className={cx('fas fa-user', styles.sideMenuIcons)}></i>Meu Perfil
               </li>
             </Link>
-            <li className={styles.sideMenuItem} onClick={e => setCategoriesMenuOpen(!categoriesMenuOpen)}>
+            <li className={styles.sideMenuItem} onClick={() => setCategoriesMenuOpen(!categoriesMenuOpen)}>
               Categorias <i className={cx('fas fa-th', styles.sideMenuIcons)}></i>
               <i
                 className={cx('fas fa-chevron-right', styles.categoriesIcon, {

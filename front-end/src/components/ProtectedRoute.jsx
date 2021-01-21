@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import getPassport from '../Api/getPassport';
 import { ContextConsumer } from '../context/ContextProvider';
@@ -22,10 +22,7 @@ function ProtectedRoute(props) {
     }
   }, [props.history, setUserNameContext]);
   return (
-    <Route
-      path={props.path}
-      render={data => (userNameContext ? <props.component user={userNameContext} /> : '')}
-    ></Route>
+    <Route path={props.path} render={() => (userNameContext ? <props.component user={userNameContext} /> : '')}></Route>
   );
 }
 

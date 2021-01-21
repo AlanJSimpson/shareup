@@ -18,7 +18,7 @@ function HamburguerToX({
         width: `${hamContainerSize}px`,
       }}
       className={styles.hamburguerContainer}
-      onClick={e => {
+      onClick={() => {
         setHamburguerIsClicked(!hamburguerIsClicked);
         setShowMenu(!showMenu);
       }}
