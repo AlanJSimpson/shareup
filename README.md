@@ -1,5 +1,3 @@
-![image](https://user-images.githubusercontent.com/59837027/95338473-597f7880-0889-11eb-9478-27cd060cf8a5.png)
-![image](https://user-images.githubusercontent.com/59837027/95338667-8e8bcb00-0889-11eb-915e-2e423bf52058.png)
 
 
 # ShareUp!
