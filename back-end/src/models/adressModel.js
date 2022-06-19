@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const Adress = sequelize.define(
-    "Adress",
+    'Adress',
     {
       id_adress: {
         type: DataTypes.INTEGER,
@@ -32,15 +32,16 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
     },
-    { timestamps: false, tableName: "adress" }
+    { timestamps: false, tableName: 'adress' }
   );
 
   Adress.associate = (models) => {
     Adress.belongsTo(models.Event, {
-      as: "eventAdress",
-      foreignKey: "fk_events",
+      as: 'eventAdress',
+      foreignKey: 'fk_events',
     });
   };
 
+  await Adress.sync();
   return Adress;
 };

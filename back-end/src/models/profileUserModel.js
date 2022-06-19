@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const ProfileUser = sequelize.define(
-    "ProfileUser",
+    'ProfileUser',
     {
       id_profile_user: {
         type: DataTypes.INTEGER,
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
       },
       sexo: {
-        type: DataTypes.ENUM("Masculino", "Feminino", "Não Binário"),
+        type: DataTypes.STRING, //DataTypes.ENUM('Masculino', 'Feminino', 'Não Binário'),
         allowNull: true,
       },
       cel: {
@@ -22,37 +22,36 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       timestamps: false,
-      tableName: "profile_users",
+      tableName: 'profile_users',
     }
   );
 
   ProfileUser.associate = (models) => {
     ProfileUser.belongsTo(models.RegisteredUser, {
-      foreignKey: "fk_registered_user",
-      as: "registeredUser",
+      foreignKey: 'fk_registered_user',
+      as: 'registeredUser',
     });
     ProfileUser.hasOne(models.Image, {
-      as: "avatar",
-      foreignKey: "fk_profile_user",
+      as: 'avatar',
+      foreignKey: 'fk_profile_user',
     });
     ProfileUser.hasMany(models.Comment, {
-      as: "comments",
-      foreignKey: "fk_profile_user",
+      as: 'comments',
+      foreignKey: 'fk_profile_user',
     });
     ProfileUser.hasMany(models.Event, {
-      as: "events",
-      foreignKey: "fk_profile_user",
+      as: 'events',
+      foreignKey: 'fk_profile_user',
     });
     ProfileUser.hasMany(models.DoneEvent, {
-      as: "eventDone",
-      foreignKey: "fk_profile_user",
+      as: 'eventDone',
+      foreignKey: 'fk_profile_user',
     });
     ProfileUser.belongsToMany(models.Event, {
       through: models.SubscribedUser,
-      as: "subscribed",
-      foreignKey: "fk_profile_user",
+      as: 'subscribed',
+      foreignKey: 'fk_profile_user',
     });
   };
-
   return ProfileUser;
 };

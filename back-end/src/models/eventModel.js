@@ -1,8 +1,8 @@
-const doneEvent = require("./doneEvent");
+const doneEvent = require('./doneEvent');
 
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const Event = sequelize.define(
-    "Event",
+    'Event',
     {
       id_events: {
         type: DataTypes.INTEGER,
@@ -27,37 +27,38 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "events",
+      tableName: 'events',
     }
   );
 
   Event.associate = (models) => {
     Event.belongsTo(models.ProfileUser, {
-      as: "userEvent",
-      foreignKey: "fk_profile_user",
+      as: 'userEvent',
+      foreignKey: 'fk_profile_user',
     });
     Event.hasMany(models.Comment, {
-      as: "commentEvent",
-      foreignKey: "fk_events",
+      as: 'commentEvent',
+      foreignKey: 'fk_events',
     });
     Event.hasOne(models.Image, {
-      as: "eventImage",
-      foreignKey: "fk_events",
+      as: 'eventImage',
+      foreignKey: 'fk_events',
     });
     Event.hasOne(models.Adress, {
-      as: "eventAdress",
-      foreignKey: "fk_events",
+      as: 'eventAdress',
+      foreignKey: 'fk_events',
     });
     Event.hasMany(models.DoneEvent, {
-      as: "eventDone",
-      foreignKey: "fk_events",
+      as: 'eventDone',
+      foreignKey: 'fk_events',
     });
     Event.belongsToMany(models.ProfileUser, {
-      as: "subscribed",
+      as: 'subscribed',
       through: models.SubscribedUser,
-      foreignKey: "fk_events",
+      foreignKey: 'fk_events',
     });
   };
 
+  await Event.sync();
   return Event;
 };

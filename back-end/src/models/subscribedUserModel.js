@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const SubscribedUser = sequelize.define(
-    "SubscribedUser",
+    'SubscribedUser',
     {
       id_subscribed_user: {
         type: DataTypes.INTEGER,
@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
     },
 
     {
-      tableName: "subscribed_users",
+      tableName: 'subscribed_users',
       timestamps: false,
     }
   );
-
+  await SubscribedUser.sync();
   return SubscribedUser;
 };

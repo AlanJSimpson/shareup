@@ -1,5 +1,7 @@
-const { ProfileUser, RegisteredUser, Image } = require('../models');
+const db = require('../models/index');
 const path = require('path');
+
+const { Image, ProfileUser, RegisteredUser } = db.sequelize.models;
 
 const updateProfileUser = async (req, res) => {
   const { nome, sexo, about, cel, avatar } = req.body;

@@ -1,15 +1,16 @@
+const db = require('../models/index');
+const bcrypt = require('bcrypt');
+const passport = require('passport');
+
 const {
-  sequelize,
-  RegisteredUser,
-  ProfileUser,
-  Image,
-  Comment,
-  Event,
   Adress,
+  Comment,
   DoneEvent,
-} = require("../models");
-const bcrypt = require("bcrypt");
-const passport = require("passport");
+  Event,
+  Image,
+  ProfileUser,
+  RegisteredUser,
+} = db.sequelize.models;
 
 module.exports = {
   saveNewUser: async (req, res) => {
@@ -24,18 +25,18 @@ module.exports = {
         });
 
         // res.status(201).send("cadastro efetuado");
-        res.redirect("http://localhost:3000/home");
+        res.redirect('http://localhost:3000/home');
       } catch (error) {
+        console.log('funciona ai namoral?');
         res.send({ Error: error.message });
       }
     } else {
-      res.send("senhas não conferem");
+      res.send('senhas não conferem');
     }
   },
 
   findAllUsers: async (req, res) => {
-    const allUser = await RegisteredUser.findAll({ include: "profileUser" });
-    console.log(allUser);
+    const allUser = await RegisteredUser.findAll({ include: 'profileUser' });
     res.send(allUser);
   },
 
@@ -43,7 +44,7 @@ module.exports = {
     const test = await ProfileUser.findAll({
       include: {
         model: Event,
-        as: "subscribed",
+        as: 'subscribed',
       },
     });
     res.send(test);
@@ -51,32 +52,32 @@ module.exports = {
 
   picImage: async (req, res) => {
     const allImages = await Image.findAll({
-      include: ["userImage", "eventImage"],
+      include: ['userImage', 'eventImage'],
     });
     res.send(allImages);
   },
 
   userComment: async (req, res) => {
     const userComment = await Comment.findAll({
-      include: ["userComment", "eventComment"],
+      include: ['userComment', 'eventComment'],
     });
     res.send(userComment);
   },
 
   events: async (req, res) => {
     // const event = await Event.findAll();
-    console.log("event>>>>", req.session);
+    console.log('event>>>>', req.session);
     res.send(req.session.passport);
   },
 
   adress: async (req, res) => {
-    const adress = await Adress.findAll({ include: "eventAdress" });
+    const adress = await Adress.findAll({ include: 'eventAdress' });
     res.send(adress);
   },
 
   eventDone: async (req, res) => {
     const eventDone = await DoneEvent.findAll({
-      include: ["eventsDone", "userDone"],
+      include: ['eventsDone', 'userDone'],
     });
     res.send(eventDone);
   },

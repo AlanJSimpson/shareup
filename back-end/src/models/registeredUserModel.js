@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const RegisteredUser = sequelize.define(
-    "RegisteredUser",
+    'RegisteredUser',
     {
       id_registered_user: {
         type: DataTypes.INTEGER,
@@ -22,16 +22,16 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       timestamps: false,
-      tableName: "registered_users",
+      tableName: 'registered_users',
     }
   );
 
   RegisteredUser.associate = (models) => {
     RegisteredUser.hasOne(models.ProfileUser, {
-      as: "profileUser",
-      foreignKey: "fk_registered_user",
+      as: 'profileUser',
+      foreignKey: 'fk_registered_user',
     });
   };
-
+  await RegisteredUser;
   return RegisteredUser;
 };

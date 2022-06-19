@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const DoneEvent = sequelize.define(
-    "DoneEvent",
+    'DoneEvent',
     {
       id_done_event: {
         type: DataTypes.INTEGER,
@@ -13,21 +13,22 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "done_events",
+      tableName: 'done_events',
       timestamps: false,
     }
   );
 
   DoneEvent.associate = (models) => {
     DoneEvent.belongsTo(models.Event, {
-      as: "eventsDone",
-      foreignKey: "fk_events",
+      as: 'eventsDone',
+      foreignKey: 'fk_events',
     });
     DoneEvent.belongsTo(models.ProfileUser, {
-      as: "userDone",
-      foreignKey: "fk_profile_user",
+      as: 'userDone',
+      foreignKey: 'fk_profile_user',
     });
   };
 
+  await DoneEvent.sync();
   return DoneEvent;
 };

@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const Comment = sequelize.define(
-    "Comment",
+    'Comment',
     {
       id_comment: {
         type: DataTypes.INTEGER,
@@ -13,21 +13,22 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "comments",
+      tableName: 'comments',
       timestamps: false,
     }
   );
 
   Comment.associate = (models) => {
     Comment.belongsTo(models.ProfileUser, {
-      as: "userComment",
-      foreignKey: "fk_profile_user",
+      as: 'userComment',
+      foreignKey: 'fk_profile_user',
     });
     Comment.belongsTo(models.Event, {
-      as: "eventComment",
-      foreignKey: "fk_events",
+      as: 'eventComment',
+      foreignKey: 'fk_events',
     });
   };
 
+  await Comment.sync();
   return Comment;
 };

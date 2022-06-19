@@ -5,8 +5,9 @@ const session = require('express-session');
 const passport = require('passport');
 const initializePassport = require('./passport/passport-config');
 const db = require('./models/index');
-const { RegisteredUser } = require('./models');
 const cors = require('cors');
+
+const { RegisteredUser } = db.sequelize.models;
 
 initializePassport(
   passport,

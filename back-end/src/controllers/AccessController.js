@@ -1,34 +1,42 @@
-const { RegisteredUser, ProfileUser, Image } = require("../models");
-const bcrypt = require("bcrypt");
-const passport = require("passport");
+const db = require('../models');
+const bcrypt = require('bcrypt');
+const passport = require('passport');
 
-const userLogin = passport.authenticate("local", {
-  successRedirect: "http://localhost:3000/home",
-  failureRedirect: "http://localhost:3000/user/register",
+const {
+  Adress,
+  Comment,
+  DoneEvent,
+  Event,
+  Image,
+  ProfileUser,
+  RegisteredUser,
+} = db.sequelize.models;
+
+const userLogin = passport.authenticate('local', {
+  successRedirect: 'http://localhost:3000/home',
+  failureRedirect: 'http://localhost:3000/user/register',
   failureFlash: true,
 });
 
 const userLogout = (req, res) => {
   try {
-    req.session.destroy(function (err) { });
-
+    req.session.destroy(function (err) {});
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-
-}
+};
 
 const userInfo = (req, res) => {
   const user = req.session;
   res.send(user);
 };
 
-
 const saveNewUser = async (req, res) => {
   let { nome, email, registerPassword, confirmPassword } = req.body;
   if (registerPassword === confirmPassword) {
     try {
       let hashPass = await bcrypt.hash(registerPassword, 10);
+
       const id = await RegisteredUser.create({
         nome,
         email,
@@ -42,18 +50,18 @@ const saveNewUser = async (req, res) => {
       });
 
       await Image.create({
-        avatar_user:null,
-        image_event:null,
+        avatar_user: null,
+        image_event: null,
         fk_profile_user: idProfileUser.dataValues.id_profile_user,
-        fk_events:null
-      })
+        fk_events: null,
+      });
 
-      res.status(201).redirect("http://localhost:3000/user/login");
+      res.status(201).redirect('http://localhost:3000/user/login');
     } catch (error) {
-      res.send({ Error: error.message });
+      res.send({ error: error.message });
     }
   } else {
-    res.send("senhas não conferem");
+    res.send('senhas não conferem');
   }
 };
 

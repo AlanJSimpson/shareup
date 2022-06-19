@@ -1,6 +1,6 @@
-module.exports = (sequelize, DataTypes) => {
+module.exports = async (sequelize, DataTypes) => {
   const Image = sequelize.define(
-    "Image",
+    'Image',
     {
       id_images: {
         type: DataTypes.INTEGER,
@@ -17,21 +17,21 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "images",
+      tableName: 'images',
       timestamps: false,
     }
   );
 
   Image.associate = (models) => {
     Image.belongsTo(models.ProfileUser, {
-      as: "userImage",
-      foreignKey: "fk_profile_user",
+      as: 'userImage',
+      foreignKey: 'fk_profile_user',
     });
     Image.belongsTo(models.Event, {
-      as: "eventImage",
-      foreignKey: "fk_events",
+      as: 'eventImage',
+      foreignKey: 'fk_events',
     });
   };
-
+  await Image.sync();
   return Image;
 };

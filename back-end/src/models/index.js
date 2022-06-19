@@ -12,11 +12,13 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(process.env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, {
-    dialect: config.dialect,
+  sequelize = new Sequelize('ShareUp', 'postgres', 'Postgres2018!', {
+    dialect: 'postgres',
     logging: false,
   });
 }
+
+sequelize.sync({ force: true });
 
 fs.readdirSync(__dirname)
   .filter((file) => {
@@ -39,6 +41,8 @@ Object.keys(db).forEach((modelName) => {
 });
 
 db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
 db.testConnection = async () => {
   try {
     await db.sequelize.authenticate();
